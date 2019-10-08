@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Form from '../Form/Form'
+import { getMovies } from '../apiCalls'
+import MovieContainer from '../MovieContainer/MovieContainer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      user:'',
+      userQuote:'',
+      userRanking:'',
+      movies:[]
+    }
+  }
+
+  componentDidMount() {
+    getMovies().then(data => this.setState({movies:data}))
+  }
+
+
+
+  render(){
+    return (
+      <div className="App">
+        <Form />
+        <MovieContainer movies={this.state.movies} />
+      </div>
+    );
+  }
 }
 
 export default App;
