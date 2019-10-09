@@ -1,36 +1,43 @@
 import React, { Component } from 'react';
-import './Form.css'
+import './Form.css';
+import robot from '../images/003-robot.svg'
 
 class Form extends Component{
     constructor() {
         super()
         this.state = {
             name: '',
-            ranking:'',
-            quote: ''  
+            ranking:'Nerf Herder',
+            quote: '',
+            revealError:false  
         }
     }
 
-
-
     handleChange = (e) => {
-        e.preventDefault();
         this.setState({[e.target.name]:e.target.value});
       }
     
-      handleSubmit = (e) => {
-        const userName = this.state.name;
-        const userQuote = this.state.quote;
-        const userRanking = this.state.ranking;
-        this.props.setUser(userName, userQuote, userRanking);
-        this.setState({ name:'' , ranking:'', quote:'' });
+      handleSubmit = () => {
+        const { name, quote, ranking } = this.state;
+ 
+        if(name && quote && ranking) {
+            this.props.setUser(name, quote, ranking);
+            this.setState({ name:'' , ranking:'', quote:'', revealError:false});
+        } else {
+            this.setState({revealError:true})
+        }
       }
 
     render() {
+      const errorClass = this.state.revealError ? 'error': 'hidden error'
         return(
             <div className='blackout'>
             <form>
                 <h1>Star Wars Trivia</h1>
+                <p className={errorClass}>
+                    <img className='errorIcon' alt='line drawing of R2D2' src={robot} />
+                    Please fill out all of the selections.
+                </p>}
                 <input 
                     type = 'text'
                     name = 'name'
@@ -63,7 +70,6 @@ class Form extends Component{
                 >
                     Submit
                 </div>
-                <p>Please fill out all the boxes</p>
             </form>
             </div>
         );
