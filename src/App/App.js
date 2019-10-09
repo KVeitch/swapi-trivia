@@ -14,7 +14,7 @@ class App extends Component {
       userQuote:'',
       userRanking:'',
       movies: [],
-      characters: []
+      characters: [],
       isFormComplete:false
     }
   }
