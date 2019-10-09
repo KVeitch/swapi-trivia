@@ -13,26 +13,31 @@ class MovieCard extends Component {
   }
 
   componentDidMount() {
-    this.setState({ characters : createCharacterList(this.props.characters)})
+    createCharacterList(this.props.characters)
+    .then(data=>this.setState({characters:data}))
   }
 
-  viewCharacter = () => {
+  viewCharacter = (e) => {
     this.setState({ showCharacterCard : !this.state.showCharacterCard})
+    this.props.changeSelectedMovie(e.target.value)
   }
 
   render() {
+
+    const characters = this.state.showCharacterCard ? 
+    this.state.characters.map((character, i) => {
+      return <CharacterCard key={i} character={character}/>
+    })
+    : '';
+  
+
     return (
       <div className='movie-card'>
         <h2>{this.props.title}</h2>
         <p>Episode {this.props.episode}</p>
         <p>Released in {this.props.releaseYear.slice(0, 4)}</p>
-        <button onClick={this.viewCharacter} className='characters-button'>View Characters</button>
-        {this.state.showCharacterCard ? 
-          this.state.characters.map((character, i) => {
-            return <CharacterCard key={i} character={character}/>
-          })
-          : ''
-        }
+        <button onClick={this.viewCharacter} className='characters-button' value={this.props.episode}>View Characters</button>
+        {characters}
       </div>
     ) 
   }

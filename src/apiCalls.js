@@ -23,9 +23,12 @@ export const createCharacterList = characters => {
   characters.map(character => {
     characterList.push(getCharacter(character))
   })
+  return Promise.all(characterList);
 }
 
-
+export const getHomeWorld = homeworld => {
+  
+}
 /// Function to get all characters from planet
 
 //Second function to get a single character  will be called in function above 
