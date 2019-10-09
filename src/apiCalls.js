@@ -18,10 +18,9 @@ export const getCharacter = characterUrl => {
     })
 }
 
-export const createCharacterArray = characters => {
-  const characterArray = []
+export const createCharacterList = characters => {
+  const characterList = []
   characters.map(character => {
-    characterArray.push(getCharacter(character))
+    characterList.push(getCharacter(character))
   })
-  return characterArray
 }

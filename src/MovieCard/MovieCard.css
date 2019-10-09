@@ -1,6 +1,6 @@
 .movie-card {
     background-color: rgba(69, 141, 150, 0.77);
-    flex-wrap: wrap;
+    border-radius: 5px;
     margin: 1.5%;
     opacity: 1;
     width: 17%;
@@ -8,6 +8,10 @@
 
 .characters-button {
     background-color: rgba(62, 110, 116, 0.99);
-    box-shadow: 0 10px 6px -6px #777;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 10px 6px -6px rgba(41, 72, 76, 0.99);
     color: white;
+    font-size: 1em;
+    width: 65%;
 }

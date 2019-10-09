@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MovieCard.css';
 import CharacterCard from '../CharacterCard/CharacterCard';
-import { createCharacterArray } from '../apiCalls';
+import { createCharacterList } from '../apiCalls';
 
 class MovieCard extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class MovieCard extends Component {
   }
 
   componentDidMount() {
-    this.setState({ characters : createCharacterArray(this.props.characters)})
+    this.setState({ characters : createCharacterList(this.props.characters)})
   }
 
   viewCharacter = () => {
