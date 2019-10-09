@@ -13,7 +13,8 @@ class App extends Component {
       user:'',
       userQuote:'',
       userRanking:'',
-      movies:[],
+      movies: [],
+      characters: []
       isFormComplete:false
     }
   }
@@ -23,9 +24,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    getMovies().then(data => this.setState({movies:data}))
+    getMovies().then(data => this.setState({ movies: data }))
   }
-
 
   render() {
     return (
