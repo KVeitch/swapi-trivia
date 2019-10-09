@@ -1,6 +1,9 @@
 import React from 'react';
 
-const CharacterCard = () => {
+const CharacterCard = props => {
+    return(
+        <h1>{props.character.name}</h1>
+    )
 
 }
 
