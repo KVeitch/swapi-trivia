@@ -14,7 +14,7 @@ const MovieContainer = props => {
     />)
 
   return (
-    <section className='movie-container'>
+    <section className='movie__container'>
       {movieList}
     </section>
   )

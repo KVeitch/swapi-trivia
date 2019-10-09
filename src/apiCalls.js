@@ -10,7 +10,7 @@ export const getMovies = () => {
       })
 }
 
-export const getCharacter = characterUrl => {
+export const getCharacters = characterUrl => {
   return fetch(characterUrl)
     .then(data => data.json())
     .then(data => {
@@ -21,7 +21,7 @@ export const getCharacter = characterUrl => {
 export const createCharacterList = characters => {
   const characterList = []
   characters.map(character => {
-    characterList.push(getCharacter(character))
+    characterList.push(getCharacters(character))
   })
   return Promise.all(characterList);
 }
