@@ -11,8 +11,13 @@ class App extends Component {
       user:'',
       userQuote:'',
       userRanking:'',
-      movies:[]
+      movies:[],
+      isFormComplete:false
     }
+  }
+
+  setUser = (user, userQuote, userRanking)=> {
+    this.setState({user, userQuote, userRanking, isFormComplete:true})
   }
 
   componentDidMount() {
@@ -21,10 +26,10 @@ class App extends Component {
 
 
 
-  render(){
+  render() {
     return (
       <div className="App">
-        <Form />
+        {!this.state.isFormComplete && <Form setUser={this.setUser}/>}
         <MovieContainer movies={this.state.movies} />
       </div>
     );
