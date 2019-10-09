@@ -15,12 +15,13 @@ class App extends Component {
       userRanking:'',
       movies: [],
       characters: [],
-      isFormComplete:false
     }
   }
 
   setUser = (user, userQuote, userRanking)=> {
-    this.setState({user, userQuote, userRanking, isFormComplete:true})
+    console.log('setUser')
+    this.setState({user, userQuote, userRanking})
+
   }
 
   componentDidMount() {
@@ -28,17 +29,18 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
       <div className="App">
-        {!this.state.isFormComplete && <Form setUser={this.setUser}/>}
         <Switch>
-        <Route path='/' render={()=><MovieContainer movies={this.state.movies} />} />
-        <Route path='/characters' render={()=><CharacterContainer />} />
+          <Route exact path='/' render={(props)=> <Form {...props} setUser={this.setUser}/>} />
+          <Route exact path='/movies' render={(props)=> <MovieContainer {...props} movies={this.state.movies} />} />
+          <Route exact path='/characters' render={(props)=> <CharacterContainer {...props}/>} />
         </Switch>
       </div>
       </Router>
-    );
+    );  
   }
 }
 
