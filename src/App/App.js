@@ -15,18 +15,22 @@ class App extends Component {
       userRanking:'',
       movies: [],
       characters: [],
+      selectedMovie:4
     }
   }
 
   setUser = (user, userQuote, userRanking)=> {
-    console.log('setUser')
     this.setState({user, userQuote, userRanking})
-
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     getMovies().then(data => this.setState({ movies: data }))
   }
+
+  changeSelectedMovie= (movieId) => {
+    this.setState({ selectedMovie:movieId })
+  }
+
 
   render() {
 
@@ -35,8 +39,8 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path='/' render={(props)=> <Form {...props} setUser={this.setUser}/>} />
-          <Route exact path='/movies' render={(props)=> <MovieContainer {...props} movies={this.state.movies} />} />
-          <Route exact path='/characters' render={(props)=> <CharacterContainer {...props}/>} />
+          <Route exact path='/movies' render={(props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie}/>} />
+          <Route path={`/movies/${this.state.selectedMovie}`} render={(props)=> <CharacterContainer {...props}/>} />
         </Switch>
       </div>
       </Router>

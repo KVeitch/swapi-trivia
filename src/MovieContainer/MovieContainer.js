@@ -10,6 +10,7 @@ const MovieContainer = props => {
     key={movie.episode_id}
     releaseYear={movie.release_date}
     characters={movie.characters}
+    changeSelectedMovie={props.changeSelectedMovie}
     />)
 
   return (
