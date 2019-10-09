@@ -1,4 +1,7 @@
 .App {
+  background-image: url('../images/tatooinesunset.jpg');
+  background-size: cover;
+  height: 100vh;
   text-align: center;
 }
 

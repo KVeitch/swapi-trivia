@@ -11,15 +11,14 @@ class App extends Component {
       user:'',
       userQuote:'',
       userRanking:'',
-      movies:[]
+      movies: [],
+      characters: []
     }
   }
 
   componentDidMount() {
-    getMovies().then(data => this.setState({movies:data}))
+    getMovies().then(data => this.setState({ movies: data }))
   }
-
-
 
   render(){
     return (
