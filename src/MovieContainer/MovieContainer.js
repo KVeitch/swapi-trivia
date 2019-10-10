@@ -12,7 +12,7 @@ const MovieContainer = props => {
     characters={movie.characters}
     changeSelectedMovie={props.changeSelectedMovie}
     />)
-
+    
   return (
     <section className='movie__container'>
       {movieList}
