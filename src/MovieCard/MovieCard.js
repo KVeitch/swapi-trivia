@@ -6,9 +6,9 @@ const MovieCard = (props) => {
   console.log('movie: ', episode, releaseYear, title)
     return (
       <div className='movie__card'>
-        <h2>{title}</h2>
-        <p>Episode {episode}</p>
-        <p>Released in {releaseYear.slice(0, 4)}</p>
+        <h2 className="card__title">{title}</h2>
+        <p className="card__episode">Episode {episode}</p>
+        <p className="card__release">Released in {releaseYear.slice(0, 4)}</p>
         <button onClick={e => changeSelectedMovie(e.target.value)} 
                 className='characters__button' 
                 value={episode}>
