@@ -25,9 +25,9 @@ class Form extends Component {
 
     if(name && quote && ranking) {
       this.props.setUser(name, quote, ranking);
-      this.setState({ revealError:false, toMovies:true});
+      this.setState({ revealError:false, toMovies:true });
     } else {
-      this.setState({revealError:true})
+      this.setState({ revealError:true })
     }
   }
 
@@ -45,7 +45,7 @@ class Form extends Component {
           <p className={errorClass}>
             <img className='errorIcon' alt='line drawing of R2D2' src={robot} />
             Please fill out all of the selections.
-          </p>}
+          </p>
           <input 
             type = 'text'
             name = 'name'
