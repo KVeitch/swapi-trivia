@@ -10,25 +10,25 @@ export const getMovies = () => {
       })
 }
 
-export const getCharacters = characterUrl => {
-  return fetch(characterUrl)
-    .then(data => data.json())
-    .then(data => {
-      return data
-    })
-}
+// export const getCharacters = characterUrl => {
+//   return fetch(characterUrl)
+//     .then(data => data.json())
+//     .then(data => {
+//       return data
+//     })
+// }
 
-export const createCharacterList = characters => {
-  const characterList = []
-  characters.map(character => {
-    characterList.push(getCharacters(character))
-  })
-  return Promise.all(characterList);
-}
+// export const createCharacterList = characters => {
+//   const characterList = []
+//   characters.map(character => {
+//     characterList.push(getCharacters(character))
+//   })
+//   return Promise.all(characterList);
+// }
 
-export const getHomeWorld = homeworld => {
+// export const getHomeWorld = homeworld => {
   
-}
+// }
 
 
 export const getFilmCharacters = (id) => {
