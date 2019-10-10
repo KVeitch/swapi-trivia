@@ -57,7 +57,7 @@ class App extends Component {
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} changeSelectedMovie={this.changeSelectedMovie} />} />
           <Route path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={`this.props.movieCharacters${this.state.selectedMovie}`} />} />
         </Switch>
-        <div>
+        <div className='user-profile'>
           {userProfile}
         </div>
       </div>
