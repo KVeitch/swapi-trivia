@@ -1,0 +1,21 @@
+.character__card {
+  width:45%;
+  border:1px solid gray;
+  display: inline-block;
+  height:300px;
+  padding:8px;
+  margin:5px;
+  background-color: rgba(194, 127, 120, 0.6);
+  border-radius: 5px;
+}
+
+.characer__name {
+  font-size: 22px;
+}
+
+.character__data__list,
+.character__films {
+  list-style: none;
+  margin-top:10px;
+}
+
