@@ -4,12 +4,12 @@ import './MovieCard.css';
 const MovieCard = (props) => {
     return (
       <div className='movie__card'>
-        <h2>{this.props.title}</h2>
-        <p>Episode {this.props.episode}</p>
-        <p>Released in {this.props.releaseYear.slice(0, 4)}</p>
-        <button onClick={e => this.props.changeSelectedMovie(e.target.value)} 
+        <h2>{props.title}</h2>
+        <p>Episode {props.episode}</p>
+        <p>Released in {props.releaseYear.slice(0, 4)}</p>
+        <button onClick={e => props.changeSelectedMovie(e.target.value)} 
                 className='characters__button' 
-                value={this.props.episode}>
+                value={props.episode}>
         View Characters
         </button>
       </div>

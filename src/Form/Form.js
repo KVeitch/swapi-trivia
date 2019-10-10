@@ -22,12 +22,11 @@ class Form extends Component {
     
   handleSubmit = () => {
     const { name, quote, ranking } = this.state;
-
     if(name && quote && ranking) {
       this.props.setUser(name, quote, ranking);
-      this.setState({ revealError:false, toMovies:true});
+      this.setState( { revealError:false, toMovies:true} );
     } else {
-      this.setState({revealError:true})
+      this.setState( {revealError:true} )
     }
   }
 

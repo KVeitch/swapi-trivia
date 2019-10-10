@@ -13,6 +13,7 @@ class App extends Component {
       user:'',
       userQuote:'',
       userRanking:'',
+      userProfileVisible: false,
       movies: [],
       characters: [],
       selectedMovie: null,
@@ -27,6 +28,7 @@ class App extends Component {
   }
 
   setUser = (user, userQuote, userRanking)=> {
+    this.userProfileVisible = true;
     this.setState({ user, userQuote, userRanking })
   }
 
@@ -39,14 +41,25 @@ class App extends Component {
   }
 
   render() {
+    let userProfile;
+    if (this.userProfileVisible = true) {
+      userProfile = <div className='user__container'>
+        <p>{this.user}</p>
+        <p>{this.userQuote}</p>
+        <p>{this.userRanking}</p>
+      </div>
+    }
     return (
       <Router>
       <div className="App">
         <Switch>
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} />} />
-          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
+          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} changeSelectedMovie={this.changeSelectedMovie} />} />
           <Route path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={`this.props.movieCharacters${this.state.selectedMovie}`} />} />
         </Switch>
+        <div>
+          {userProfile}
+        </div>
       </div>
       </Router>
     );  
