@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
-import { getMovies, getFilmCharacters, getCharacters, createCharacterList } from '../apiCalls';
+import { getMovies, getFilmCharacters } from '../apiCalls';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
@@ -14,15 +14,15 @@ class App extends Component {
       userQuote:'',
       userRanking:'',
       movies: [],
-      characters: [],
-      selectedMovie: null,
+      selectedMovie: 1,
       movieCharacters1 : [],
       movieCharacters2 : [],
       movieCharacters3 : [],
       movieCharacters4 : [],
       movieCharacters5 : [],
       movieCharacters6 : [],
-      movieCharacters7 : []
+      movieCharacters7 : [],
+      currentCharacters: []
     }
   }
 
@@ -32,6 +32,16 @@ class App extends Component {
 
   componentDidMount = () => {
     getMovies().then(data => this.setState({ movies : data }))
+    getFilmCharacters(this.state.selectedMovie).then(chars => this.setState({ currentCharacters: chars}))
+    .then(()=>console.log('done'))
+    // const films = [1,2,3,4,5,6,7]
+    // films.forEach(film => {
+    //   getFilmCharacters(film).then(res => {
+    //     const movie = `movieCharacters${film}`
+    //     console.log(movie , res)
+    //     this.setState({ [movie]: res })
+    //   })
+    // })
   }
 
   changeSelectedMovie= (movieId) => {
@@ -39,16 +49,17 @@ class App extends Component {
   }
 
   render() {
+    const charProps = `this.props.movieCharacters${this.state.selectedMovie}`;
     return (
-      <Router>
+      // <Router>
       <div className="App">
         <Switch>
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} />} />
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
-          <Route path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={`this.props.movieCharacters${this.state.selectedMovie}`} />} />
+          <Route path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={this.state.currentCharacters} />} />
         </Switch>
       </div>
-      </Router>
+      // </Router>
     );  
   }
 }
