@@ -33,9 +33,7 @@ class App extends Component {
 
   setMovies = (mockFilms) => {
     console.log('mockFilms', mockFilms)
-    const data = mockFilms.results.map(film => {
-      return <div key='film-img'>film</div>
-    })
+    const data = mockFilms.results
     this.setState({ movies : data })
   }
   
