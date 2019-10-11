@@ -16,7 +16,6 @@ h1 {
 form {
   display:flex;
   flex-direction: column;
-  align-items:center;
   justify-content: space-around;
   height:100vh;
   font-family: 'Barlow Condensed', sans-serif;
@@ -28,6 +27,16 @@ form {
   width: 100%;  
 }
 
+.sidebar {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.75);
+  width: 25%;
+}
+
 input, 
 select,
 option {
@@ -35,18 +44,14 @@ option {
 	border: 1px solid gray;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
   display:block;
-  font-size: 22px;
+  font-size: 1em;
   line-height: 1.3;
 	padding: .6em 1.4em .5em .8em;
-  width:20em;
 	-moz-appearance: none;
 	-webkit-appearance: none;
   appearance: none;
-  text-align: center
-}
-select,
-option {
-  width:10em;
+  text-align: center;
+  width: 85%;
 }
 
 input:focus,
@@ -60,9 +65,13 @@ input::placeholder {
   line-height: 5em;
 }
 
-.selection__menu {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 2em;
+.logo {
+  height: 10%;
+}
+
+.ranking {
+  background-color: white;
+  border-radius: 5px;
 }
 
 .btn__submit {

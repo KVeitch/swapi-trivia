@@ -40,17 +40,19 @@ class Form extends Component {
     if(this.state.toMovies) {
       return <Redirect to='/movies' />;
     }
-    
+
     const errorClass = this.state.revealError ? 'error': 'hidden error';
 
     return(
       <div className='blackout'>
         <form>
+          <div className='sidebar'>
           <h1>Star Wars Trivia</h1>
           <p className={errorClass}>
             <img className='errorIcon' alt='line drawing of R2D2' src={robot} />
             Please fill out all of the selections.
           </p>
+            <img src='https://image.flaticon.com/icons/svg/813/813466.svg' className='logo'alt='star-wars-icon' />
           <input 
             type = 'text'
             name = 'name'
@@ -58,7 +60,7 @@ class Form extends Component {
             placeholder = 'What do you prefer to be called?'
             value = {this.state.name}
             onChange = {this.handleChange}
-          />
+            />
           <input 
             type = 'text'
             name = 'quote'
@@ -66,19 +68,20 @@ class Form extends Component {
             placeholder = 'What is your favorite Star Wars quote?'
             value = {this.state.quote}
             onChange = {this.handleChange}
-          />
+            />
           <div className='selection__menu'>
             <p>How Jedi Are You?</p>
-            <select name='ranking' value={this.state.ranking} onChange={this.handleChange} >
-              <option value='Nerf Herder' className='option'>Nerf Herder</option>
-              <option value='Padawan' className='option'>Padawan</option>
-              <option value='Jedi Knight' className='option'>Jedi Knight</option>
-              <option value='Jedi Master' className='option'>Jedi Master</option>
-            </select>
+              <select name='ranking' value={this.state.ranking} onChange={this.handleChange} >
+                <option value='Nerf Herder' className='option'>Nerf Herder</option>
+                <option value='Padawan' className='option'>Padawan</option>
+                <option value='Jedi Knight' className='option'>Jedi Knight</option>
+                <option value='Jedi Master' className='option'>Jedi Master</option>
+              </select>
           </div>
           <button className='btn__submit' onClick={this.handleSubmit} >
             Submit
           </button>
+            </div>
         </form>
       </div>
     );
