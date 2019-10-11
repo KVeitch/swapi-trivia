@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './Form.css';
 import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
-
+import mockFilms from '../mock-data/mockFilm'
+import mockCharacters from '../mock-data/characters'
 
 class Form extends Component {
   constructor() {
@@ -25,6 +26,10 @@ class Form extends Component {
 
     if(name && quote && ranking) {
       this.props.setUser(name, quote, ranking);
+      this.props.setMovies(mockFilms)
+      console.log('mockFilms', mockFilms)
+      this.props.setCharacters(mockCharacters)
+      console.log('mockCharacters', mockCharacters)
       this.setState({ revealError:false, toMovies:true });
     } else {
       this.setState({ revealError:true })
@@ -67,7 +72,7 @@ class Form extends Component {
             <select name='ranking' value={this.state.ranking} onChange={this.handleChange} >
               <option value='Nerf Herder' className='option'>Nerf Herder</option>
               <option value='Padawan' className='option'>Padawan</option>
-              <option value='Jedi Knight' className='option'>Jedi Kinght</option>
+              <option value='Jedi Knight' className='option'>Jedi Knight</option>
               <option value='Jedi Master' className='option'>Jedi Master</option>
             </select>
           </div>

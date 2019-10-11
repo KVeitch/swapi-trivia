@@ -30,19 +30,32 @@ class App extends Component {
     this.setState({ user, userQuote, userRanking })
   }
 
-  componentDidMount = () => {
-    getMovies().then(data => this.setState({ movies : data }))
-    getFilmCharacters(this.state.selectedMovie).then(chars => this.setState({ currentCharacters: chars}))
-    .then(()=>console.log('done'))
+  setMovies = (mockFilms) => {
+    console.log('mockFilms', mockFilms)
+    const data = mockFilms.results
+    this.setState({ movies : data })
+  }
+  
+  setCharacters = (mockCharacters) => {
+    const characterData = mockCharacters.results
+    // getFilmCharacters(this.state.selectedMovie)
+    this.setState({ characters : characterData})
+  }
+  
+  // componentDidMount = (mockFilm) => {
+    // getMovies(mockFilms)
+    // .then(data => this.setState({ movies : data }))
+    // getFilmCharacters(this.state.selectedMovie).then(chars => this.setState({ currentCharacters: chars }))
+    // .then(()=>console.log('done'))
     // const films = [1,2,3,4,5,6,7]
     // films.forEach(film => {
-    //   getFilmCharacters(film).then(res => {
-    //     const movie = `movieCharacters${film}`
-    //     console.log(movie , res)
-    //     this.setState({ [movie]: res })
-    //   })
+      // getFilmCharacters(film).then(response => {
+        // const movie = `movieCharacters${film}`
+        // console.log('movie', movie , response)
+        // this.setState({ [movie]: response })
+      // })
     // })
-  }
+  // }
 
   changeSelectedMovie= (movieId) => {
     this.setState({ selectedMovie : movieId })
@@ -53,12 +66,11 @@ class App extends Component {
     return (
 
       <div className="App">
-
-          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} />} />
+          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters}/>} />
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
+          <Route exact path='/movies' render={(props) => <UserMenu {...props} />} />
           <Route exact path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={this.state.currentCharacters} />} />
           <Redirect to='/' />
-
       </div>
     );  
   }
