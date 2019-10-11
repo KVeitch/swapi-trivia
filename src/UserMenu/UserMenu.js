@@ -4,9 +4,9 @@ import './UserMenu.css';
 const UserMenu = (props) => {
     return(
         <div className='user__box'>
-            <p>{props.user}</p>
+            <p className='box__ends'>{props.user}</p>
             <p>Favorite Quote: "{props.userQuote}"</p>
-            <p>Ranking: {props.userRanking}</p>
+            <p className='box__ends'>Ranking: {props.userRanking}</p>
         </div>
     )
 }
