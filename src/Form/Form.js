@@ -4,6 +4,7 @@ import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
 import mockFilms from '../mock-data/mockFilm'
 import mockCharacters from '../mock-data/characters'
+import insults from '../mock-data/C3PO';
 
 class Form extends Component {
   constructor() {
@@ -34,6 +35,15 @@ class Form extends Component {
     } else {
       this.setState({ revealError: true })
     }
+  }
+
+  handleRandomQuote = () => {
+    let randomIndex = Math.floor(Math.random() * (5 - 0))
+    const randomQuotes = insults.map(insult => {
+      return insult.quote
+    })
+    return randomQuotes[randomIndex]
+
   }
 
   render() {
@@ -80,6 +90,12 @@ class Form extends Component {
             Submit
           </button>
             </div>
+        <div className='random__quote'>
+          <p className='quote__text'>{this.handleRandomQuote()}</p>
+          <button className='quote__submit' onClick={this.handleRandomQuote} >
+            Insults by C3P0
+          </button>
+        </div>
         </form>
       </div>
     );
