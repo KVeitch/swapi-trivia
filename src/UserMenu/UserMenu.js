@@ -5,8 +5,8 @@ const UserMenu = (props) => {
     return(
         <div className='user__box'>
             <p>{props.user}</p>
-            <p>"{props.userQuote}"</p>
-            <p>{props.userRanking}</p>
+            <p>Favorite Quote: "{props.userQuote}"</p>
+            <p>Ranking: {props.userRanking}</p>
         </div>
     )
 }

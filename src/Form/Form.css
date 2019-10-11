@@ -11,6 +11,7 @@ h1 {
   font-weight: normal;
   font-style: normal;
   font-size: 4em;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
 }
 
 form {
@@ -50,6 +51,7 @@ option {
 	-moz-appearance: none;
 	-webkit-appearance: none;
   appearance: none;
+  margin-top: 15px;
   text-align: center;
   width: 85%;
 }
@@ -85,19 +87,19 @@ input::placeholder {
   cursor: pointer;
 }
 
-.errorIcon {
+.error-icon {
   height:50px
 }
 
 .error {
-  font-size: 1.5em;
+  font-size: 1em;
   height:70px;
   display:flex;
   justify-content: center;
   line-height: 70px;
-  background-color: rgba(252, 220, 165, 0.25);
+  background-color: rgb(233, 189, 169);
   border-radius: 5px;
-  padding-top:7px
+  padding: 15px;
 }
 
 .hidden {

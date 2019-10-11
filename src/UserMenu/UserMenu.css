@@ -9,5 +9,6 @@
     justify-content: space-evenly;
     height: 15vh;
     margin-left: 7%;
+    text-shadow: 3px 4px 4px rgba(23, 6, 1, 0.94);
     width: 85%
 }
