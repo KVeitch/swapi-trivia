@@ -9,6 +9,9 @@
 
 .card__title {
     height:100px;
+    font-family: 'SpaceMeatballRegular';
+    font-weight: normal;
+    font-style: normal;
 }
 
 .card__episode {

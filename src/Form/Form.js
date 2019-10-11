@@ -30,9 +30,9 @@ class Form extends Component {
       console.log('mockFilms', mockFilms)
       this.props.setCharacters(mockCharacters)
       console.log('mockCharacters', mockCharacters)
-      this.setState({ revealError:false, toMovies:true });
+      this.setState({ revealError : false, toMovies : true });
     } else {
-      this.setState({ revealError:true })
+      this.setState({ revealError : true })
     }
   }
 
@@ -40,7 +40,7 @@ class Form extends Component {
     if(this.state.toMovies) {
       return <Redirect to='/movies' />;
     }
-        
+    
     const errorClass = this.state.revealError ? 'error': 'hidden error';
 
     return(
@@ -67,8 +67,8 @@ class Form extends Component {
             value = {this.state.quote}
             onChange = {this.handleChange}
           />
-          <div>
-            <p>Select you level of knowledge:</p>
+          <div className='selection__menu'>
+            <p>How Jedi Are You?</p>
             <select name='ranking' value={this.state.ranking} onChange={this.handleChange} >
               <option value='Nerf Herder' className='option'>Nerf Herder</option>
               <option value='Padawan' className='option'>Padawan</option>
@@ -76,13 +76,9 @@ class Form extends Component {
               <option value='Jedi Master' className='option'>Jedi Master</option>
             </select>
           </div>
-          <div 
-            type='button'
-            className='btn__submit'
-            onClick={this.handleSubmit}
-          >
+          <button className='btn__submit' onClick={this.handleSubmit} >
             Submit
-          </div>
+          </button>
         </form>
       </div>
     );

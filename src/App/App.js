@@ -5,6 +5,7 @@ import { getMovies, getFilmCharacters } from '../apiCalls';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
+import UserMenu from '../UserMenu/UserMenu';
 
 class App extends Component {
   constructor() {
@@ -32,7 +33,9 @@ class App extends Component {
 
   setMovies = (mockFilms) => {
     console.log('mockFilms', mockFilms)
-    const data = mockFilms.results
+    const data = mockFilms.results.map(film => {
+      return <div key='film-img'>film</div>
+    })
     this.setState({ movies : data })
   }
   
@@ -64,11 +67,10 @@ class App extends Component {
   render() {
     const charProps = `this.props.movieCharacters${this.state.selectedMovie}`;
     return (
-
       <div className="App">
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters}/>} />
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
-          <Route exact path='/movies' render={(props) => <UserMenu {...props} />} />
+          <Route exact path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
           <Route exact path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={this.state.currentCharacters} />} />
           <Redirect to='/' />
       </div>

@@ -1,0 +1,13 @@
+.user__box {
+    align-items: center;
+    background-color: rgba(67, 52, 45, 0.7);
+    color: white;
+    display: flex;
+    font-family: 'Barlow Condensed', sans-serif;
+    flex-direction: row;
+    font-size: 1.7em;
+    justify-content: space-evenly;
+    height: 15vh;
+    margin-left: 7%;
+    width: 85%
+}
