@@ -5,10 +5,14 @@
     display: flex;
     font-family: 'Barlow Condensed', sans-serif;
     flex-direction: row;
-    font-size: 1.7em;
+    font-size: 1.5em;
     justify-content: space-evenly;
     height: 15vh;
     margin-left: 7%;
     text-shadow: 3px 4px 4px rgba(23, 6, 1, 0.94);
     width: 85%
+}
+
+.box__ends {
+    font-size: 1.7em;
 }
