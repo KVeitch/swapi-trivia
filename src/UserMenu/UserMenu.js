@@ -1,7 +1,14 @@
 import React from 'react';
+import './UserMenu.css';
 
-const UserMenu = () => {
-
+const UserMenu = (props) => {
+    return(
+        <div className='user__box'>
+            <p className='box__ends'>{props.user}</p>
+            <p>Favorite Quote: "{props.userQuote}"</p>
+            <p className='box__ends'>Ranking: {props.userRanking}</p>
+        </div>
+    )
 }
 
 export default UserMenu;

@@ -3,12 +3,19 @@
     border-radius: 5px;
     margin: 1.5%;
     opacity: 1;
+    flex-direction: column;
+    display: flex;
     width: 17%;
-    padding:4px;
+    padding: 4px;
+    justify-content: space-evenly;
 }
 
 .card__title {
     height:100px;
+    font-family: 'SpaceMeatballRegular';
+    font-weight: normal;
+    font-style: normal;
+    text-shadow: 3px 4px 4px rgba(23, 6, 1, 0.94)
 }
 
 .card__episode {
