@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Card should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="movie__card"
+>
+  <h2
+    className="card__title"
+  />
+  <p
+    className="card__episode"
+  >
+    Episode 
+    3
+  </p>
+  <img
+    src=""
+  />
+  <p
+    className="card__release"
+  >
+    Released in 
+  </p>
+  <Link
+    to="/movies/3"
+  >
+    <button
+      className="characters__button"
+      onClick={[Function]}
+      value={3}
+    >
+      View Characters
+    </button>
+  </Link>
+</div>
+`;

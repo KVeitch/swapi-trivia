@@ -5,9 +5,10 @@
     opacity: 1;
     flex-direction: column;
     display: flex;
-    width: 17%;
+    min-width: 26vh;
     padding: 4px;
     justify-content: space-evenly;
+    height:48vh;
 }
 
 .card__title {

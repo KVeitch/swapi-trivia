@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './Form.css';
 import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
-import mockCharacters from '../mock-data/characters'
-import insults from '../mock-data/C3PO';
+// import mockFilms from '../mock-data/mockFilm'
+// import mockCharacters from '../mock-data/characters'
+
 
 class Form extends Component {
   constructor() {
@@ -24,19 +25,16 @@ class Form extends Component {
   handleSubmit = () => {
     const { name, quote, ranking } = this.state;
 
-    if(name && quote && ranking) {
-      this.props.setUser(name, quote, ranking);
-      // this.props.setMovies(mockFilms)
-      // this.props.setCharacters(mockCharacters)
-      this.setState({ revealError: false, toMovies: true });
+    if(name && quote) {
+        this.props.setUser(name, quote, ranking);
+        this.setState({ name:'' , ranking:'', quote:'', revealError:false, toMovies:true});
     } else {
-      this.setState({ revealError: true })
+        this.setState({revealError:true})
     }
   }
-
   handleRandomQuote = () => {
-    let randomIndex = Math.floor(Math.random() * (5 - 0))
-    const randomQuotes = insults.map(insult => {
+    let randomIndex = Math.floor(Math.random() * (this.props.insults.length))
+    const randomQuotes = this.props.insults.map(insult => {
       return insult.quote
     })
     return randomQuotes[randomIndex]
@@ -83,15 +81,15 @@ class Form extends Component {
                 <option value='Jedi Master' className='option'>Jedi Master</option>
               </select>
           </div>
-          <button className='btn__submit' onClick={this.handleSubmit} >
+          <div type='button' className='btn__submit' onClick={this.handleSubmit} >
             Submit
-          </button>
+          </div>
             </div>
         <div className='random__quote'>
           <p className='quote__text'>{this.handleRandomQuote()}</p>
-          <button className='quote__submit' onClick={this.handleRandomQuote} >
-            Insults
-          </button>
+          <div type='button' className='quote__submit' onClick={this.handleRandomQuote} >
+            Insults by C3P0
+          </div>
         </div>
         </form>
       </div>
