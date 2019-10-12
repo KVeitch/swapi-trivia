@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="user__box"
+>
+  <p
+    className="box__ends"
+  />
+  <p>
+    Favorite Quote: "
+    "
+  </p>
+  <p
+    className="box__ends"
+  >
+    Ranking: 
+  </p>
+  <button>
+    Sign Out
+  </button>
+</div>
+`;
+
+exports[`User Menu should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="user__box"
+>
+  <p
+    className="box__ends"
+  />
+  <p>
+    Favorite Quote: "
+    "
+  </p>
+  <p
+    className="box__ends"
+  >
+    Ranking: 
+  </p>
+  <button>
+    Sign Out
+  </button>
+</div>
+`;

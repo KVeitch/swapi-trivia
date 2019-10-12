@@ -7,6 +7,7 @@ import { Route, Redirect} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
 import UserMenu from '../UserMenu/UserMenu';
 // import films from '../mock-data/films.json';
+import insults from '../mock-data/C3PO';
 
 class App extends Component {
   constructor() {
@@ -19,8 +20,9 @@ class App extends Component {
       selectedMovie: 1,
       currentCharacters: []
     }
+    console.log('this.state', this.state)
   }
-
+  
   setUser = (user, userQuote, userRanking)=> {
     this.setState({ user, userQuote, userRanking })
   }
@@ -88,10 +90,14 @@ class App extends Component {
     this.setState({movies: moviesWithImages})
   }
 
+  userSignOut = () => {
+    this.setState({user: '', userQuote: '', userRanking: ''})
+  }
+
   render() {
     return (
       <div className="App">
-          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters}/>} />
+          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters} insults={insults}/>} />
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
           <Route exact path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
           <Route exact path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={this.currentCharacters} />} />

@@ -4,7 +4,7 @@ import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
 // import mockFilms from '../mock-data/mockFilm'
 // import mockCharacters from '../mock-data/characters'
-import insults from '../mock-data/C3PO';
+
 
 class Form extends Component {
   constructor() {
@@ -33,8 +33,8 @@ class Form extends Component {
     }
   }
   handleRandomQuote = () => {
-    let randomIndex = Math.floor(Math.random() * (5 - 0))
-    const randomQuotes = insults.map(insult => {
+    let randomIndex = Math.floor(Math.random() * (this.props.insults.length))
+    const randomQuotes = this.props.insults.map(insult => {
       return insult.quote
     })
     return randomQuotes[randomIndex]
