@@ -17,7 +17,8 @@ class App extends Component {
       userRanking:'',
       movies: [],
       selectedMovie: 1,
-      currentCharacters: ['bob']
+      currentCharacters: [],
+      isCurrentCharactersLoaded: false,
     }
   }
 
@@ -34,15 +35,15 @@ class App extends Component {
   setCurrentCharacters = (filmId) => {
     console.log('starting character Fetch')
     getFilmCharacters(filmId)
-      .then(data=>{console.log(data); return data})
       .then(data => this.setState({ currentCharacters:data}))
+      .then(()=>this.setState({isCurrentCharactersLoaded:true }))
       .then(()=>console.log('finished character fetch',this.state.currentCharacters))
     
   }
   
   changeSelectedMovie= (movieNum) => {
     this.setCurrentCharacters(movieNum)
-    this.setState({ selectedMovie : movieNum })
+    this.setState({ selectedMovie : movieNum})
 
   }
 
@@ -73,13 +74,14 @@ class App extends Component {
     return (
       <div className="App">
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters}/>} />
-          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} setCurrentCharacters={this.setCurrentCharacters} changeSelectedMovie={this.changeSelectedMovie} />} />
-          <Route exact path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
-          <Route exact path={'/movies/1'} 
+          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} setCurrentCharacters={this.setCurrentCharacters} changeSelectedMovie={this.changeSelectedMovie} characters={this.currentCharacters}/>} />
+          <Route exact path='/movies/:id' 
                       render={ (props)=> <CharacterContainer {...props} 
-                      characters={this.currentCharacters} 
+                      characters={this.state.currentCharacters} 
                       changeSelectedMovie={this.changeSelectedMovie}
+                      isReady={this.state.isCurrentCharactersLoaded}
                       />} />
+          <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
           {/* <Redirect to='/movies' /> */}
       </div>
     );  

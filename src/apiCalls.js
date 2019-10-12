@@ -31,6 +31,7 @@ export const getFilmCharacters = (id) => {
   let url = `https://swapi.co/api/films/${id}`
   return fetch(url).then(res => res.json())
   .then(data => data.characters)
+  .then(data=> data.splice(0,10))
   .then(data => formatData(data))
   .then(chars => getCharacterHomeworld(chars))
   .then(chars => getCharacterSpecies(chars))
