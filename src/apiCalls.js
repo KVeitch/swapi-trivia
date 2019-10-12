@@ -10,35 +10,33 @@ export const getMovies = () => {
       })
 }
 
-export const getCharacters = characterUrl => {
+export const getCharacter = characterUrl => {
   return fetch(characterUrl)
     .then(data => data.json())
-    .then(data => {
-      return data
-    })
 }
 
 export const createCharacterList = characters => {
-  const characterList = []
-  characters.map(character => {
-    characterList.push(getCharacters(character))
-  })
+  const characterList = characters.map(character => getCharacter(character))
+  
   return Promise.all(characterList);
 }
 
-export const getHomeWorld = homeworld => {
-  
-}
 
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
 export const getFilmCharacters = (id) => {
   let url = `https://swapi.co/api/films/${id}`
   return fetch(url).then(res => res.json())
   .then(data => data.characters)
+  .then(data=> data.splice(0,10))
   .then(data => formatData(data))
   .then(chars => getCharacterHomeworld(chars))
   .then(chars => getCharacterSpecies(chars))
   .then(chars => getCharacterFilms(chars))
+  
 }
 
 const formatData = (characterUrls) => {

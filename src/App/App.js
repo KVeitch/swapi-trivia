@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
-import { getMovies, getFilmCharacters } from '../apiCalls';
+import { getMovies, getFilmCharacters, createCharacterList, getCharacter } from '../apiCalls';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import { Route, Redirect} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
@@ -18,53 +18,32 @@ class App extends Component {
       userRanking:'',
       movies: [],
       selectedMovie: 1,
-      currentCharacters: []
+      currentCharacters: [],
+      isCurrentCharactersLoaded: false,
     }
-    console.log('this.state', this.state)
+  }
+
+  componentDidMount = () => {
+    getMovies()
+    .then(data => this.setState({ movies : data }))
+    .then(()=>console.log('Got Films'))
   }
   
   setUser = (user, userQuote, userRanking)=> {
     this.setState({ user, userQuote, userRanking })
   }
 
-  // setMovies = (mockFilms) => {
-  //   console.log('mockFilms', mockFilms)
-  //   const data = mockFilms.results
-  //   this.setState({ movies : data })
-  // }
-  
-  // setCharacters = (mockCharacters) => {
-  //   const characterData = mockCharacters.results
-  //   getFilmCharacters(this.state.selectedMovie)
-  //   this.setState({ characters : characterData})
-  // }
-  
-  componentDidMount = () => {
-///////////////// Switch for mock films data Switch 1 ////////////////////
-    // this.setState({movies : films})
-///////////////// Switch for mock films data  Switch 1////////////////////
-    getMovies()
-    .then(data => this.setState({ movies : data }))
-    .then(()=>console.log('Got Films'))
-    ///////////////// Switch for mock data films End Switch 1////////////////////
-
-    // getFilmCharacters(this.state.selectedMovie).then(chars => this.setState({ currentCharacters: chars }))
-    // .then(()=>console.log('done'))
-
-
-    // const films = [1,2,3,4,5,6,7]
-    // films.forEach(film => {
-    //   getFilmCharacters(film).then(response => {
-    //     const movie = `movieCharacters${film}`
-    //     console.log('movie', movie , response)
-    //     this.setState({ [movie]: response })
-    //   })
-    // })
+  setCurrentCharacters = (filmId) => {
+    console.log('starting character Fetch')
+    getFilmCharacters(filmId)
+      .then(data => this.setState({ currentCharacters:data}))
+      .then(()=>this.setState({isCurrentCharactersLoaded:true }))
+      .then(()=>console.log('finished character fetch',this.state.currentCharacters))
   }
-
+  
   changeSelectedMovie= (movieNum) => {
-    this.setState({ selectedMovie : movieNum })
-
+    this.setCurrentCharacters(movieNum)
+    this.setState({ selectedMovie : movieNum})
   }
 
   setImages = () => {
@@ -90,18 +69,20 @@ class App extends Component {
     this.setState({movies: moviesWithImages})
   }
 
-  userSignOut = () => {
-    this.setState({user: '', userQuote: '', userRanking: ''})
-  }
-
-  render() {
+  render=() => {
     return (
       <div className="App">
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters} insults={insults}/>} />
-          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} changeSelectedMovie={this.changeSelectedMovie} />} />
-          <Route exact path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
-          <Route exact path={`/movies/${this.state.selectedMovie}`} render={ (props)=> <CharacterContainer {...props} characters={this.currentCharacters} />} />
-          {/* <Redirect to='/' /> */}
+          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} setCurrentCharacters={this.setCurrentCharacters} changeSelectedMovie={this.changeSelectedMovie} characters={this.currentCharacters}/>} />
+          <Route exact path='/movies/:id' 
+                      render={ (props)=> <CharacterContainer {...props} 
+                      characters={this.state.currentCharacters} 
+                      changeSelectedMovie={this.changeSelectedMovie}
+                      isReady={this.state.isCurrentCharactersLoaded}
+                      />} />
+          <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
+          {/* <Redirect to='/movies' /> */}
+
       </div>
     );  
   }
