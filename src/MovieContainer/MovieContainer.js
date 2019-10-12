@@ -8,6 +8,7 @@ const MovieContainer = props => {
   <MovieCard 
     title={movie.title}
     episode={movie.episode_id}
+    img={movie.moviesWithImages}
     key={movie.episode_id}
     releaseYear={movie.release_date}
     characters={movie.characters}

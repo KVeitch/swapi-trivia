@@ -10,6 +10,7 @@ form {
   display:flex;
   height:100vh;
   font-family: 'Barlow Condensed', sans-serif;
+  height: 100vh;
   background: url('https://starwarsblog.starwars.com/wp-content/uploads/2015/07/Screen-Shot-2015-07-06-at-2.58.52-PM.png') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -58,7 +59,7 @@ input::placeholder {
 }
 
 .logo {
-  height: 10%;
+  height: 15%;
 }
 
 .ranking {
@@ -66,21 +67,25 @@ input::placeholder {
   border-radius: 5px;
 }
 
-.btn__submit,
-.quote__submit {
+.btn__submit {
   font-size: 22px;
-  height: 80px;
-  width:200px;
+  height: 7%;
+  width: 42%;
   border-radius: 5%;
   box-shadow: 0 10px 6px -6px rgba(41, 72, 76, 0.99);
   background-color:rgb(223, 213, 207);
   margin-top: 15px;
-  line-height: 80px;
   cursor: pointer;
 }
 
 .quote__submit {
-  height: 7%;
+  border-radius: 5%;
+  box-shadow: 0 10px 6px -6px rgba(41, 72, 76, 0.99);
+  background-color:rgb(223, 213, 207);
+  height: 4%;
+  font-size: 1em;
+  margin-right: 20px;
+  width: 15%;
 }
 
 .error-icon {
@@ -107,6 +112,7 @@ input::placeholder {
   color: white;
   display: flex;
   flex-direction: column;
+  height: 100vh;
   justify-content: center;
   margin-left: auto;
 }

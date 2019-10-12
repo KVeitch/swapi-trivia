@@ -7,6 +7,7 @@ import { Route, Redirect} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
 import UserMenu from '../UserMenu/UserMenu';
 // import films from '../mock-data/films.json';
+import insults from '../mock-data/C3PO';
 
 class App extends Component {
   constructor() {
@@ -38,13 +39,11 @@ class App extends Component {
       .then(data => this.setState({ currentCharacters:data}))
       .then(()=>this.setState({isCurrentCharactersLoaded:true }))
       .then(()=>console.log('finished character fetch',this.state.currentCharacters))
-    
   }
   
   changeSelectedMovie= (movieNum) => {
     this.setCurrentCharacters(movieNum)
     this.setState({ selectedMovie : movieNum})
-
   }
 
   setImages = () => {
@@ -70,6 +69,7 @@ class App extends Component {
     this.setState({movies: moviesWithImages})
   }
 
+<<<<<<< HEAD
   render=() => {
     return (
       <div className="App">
@@ -83,6 +83,7 @@ class App extends Component {
                       />} />
           <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
           {/* <Redirect to='/movies' /> */}
+
       </div>
     );  
   }

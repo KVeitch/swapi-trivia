@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="blackout"
+>
+  <form>
+    <div
+      className="sidebar"
+    >
+      <h1>
+        Star Wars Trivia
+      </h1>
+      <p
+        className="hidden error"
+      >
+        <img
+          alt="line drawing of R2D2"
+          className="error-icon"
+          src="003-robot.svg"
+        />
+        Please fill out all fields
+      </p>
+      <img
+        alt="star-wars-icon"
+        className="logo"
+        src="https://image.flaticon.com/icons/svg/813/813466.svg"
+      />
+      <input
+        className="input__name"
+        name="name"
+        onChange={[Function]}
+        placeholder="What do you prefer to be called?"
+        type="text"
+        value=""
+      />
+      <input
+        className="input__quote"
+        name="quote"
+        onChange={[Function]}
+        placeholder="What is your favorite Star Wars quote?"
+        type="text"
+        value=""
+      />
+      <div
+        className="selection__menu"
+      >
+        <h3>
+          How Jedi Are You?
+        </h3>
+        <select
+          name="ranking"
+          onChange={[Function]}
+          value="Nerf Herder"
+        >
+          <option
+            className="option"
+            value="Nerf Herder"
+          >
+            Nerf Herder
+          </option>
+          <option
+            className="option"
+            value="Padawan"
+          >
+            Padawan
+          </option>
+          <option
+            className="option"
+            value="Jedi Knight"
+          >
+            Jedi Knight
+          </option>
+          <option
+            className="option"
+            value="Jedi Master"
+          >
+            Jedi Master
+          </option>
+        </select>
+      </div>
+      <div
+        className="btn__submit"
+        onClick={[Function]}
+        type="button"
+      >
+        Submit
+      </div>
+    </div>
+    <div
+      className="random__quote"
+    >
+      <p
+        className="quote__text"
+      >
+        Don’t worry about Master Luke. I’m sure he’ll be all right. He’s quite clever, you know… for a human being.
+      </p>
+      <div
+        className="quote__submit"
+        onClick={[Function]}
+        type="button"
+      >
+        Insults by C3P0
+      </div>
+    </div>
+  </form>
+</div>
+`;
