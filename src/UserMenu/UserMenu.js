@@ -7,7 +7,7 @@ const UserMenu = (props) => {
             <p className='box__ends'>{props.user}</p>
             <p>Favorite Quote: "{props.userQuote}"</p>
             <p className='box__ends'>Ranking: {props.userRanking}</p>
-            <button onClick={props.userSignOut}>Sign Out</button>
+            <button className='sign-out__button'onClick={props.userSignOut}>Sign Out</button>
         </div>
     )
 }

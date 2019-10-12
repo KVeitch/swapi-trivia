@@ -88,10 +88,7 @@ class Form extends Component {
           </div>
             </div>
         <div className='random__quote'>
-          <p className='quote__text'>{this.state.randomQuote}</p>
-          <div type='button' className='quote__submit' onClick={this.handleRandomQuote} >
-            Insults by C3P0
-          </div>
+          <p className='quote__text'>{this.state.randomQuote}<span> -C3PO </span></p>
         </div>
         </form>
       </div>

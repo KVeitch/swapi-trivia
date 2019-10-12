@@ -58,6 +58,11 @@ input::placeholder {
   line-height: 5em;
 }
 
+span { 
+  display: flex;
+  justify-content: flex-end;
+}
+
 .logo {
   height: 15%;
 }
@@ -69,10 +74,10 @@ input::placeholder {
 
 .btn__submit {
   font-size: 22px;
-  height: 7%;
+  height: 4%;
   width: 42%;
   border-radius: 5%;
-  box-shadow: 0 10px 6px -6px rgba(41, 72, 76, 0.99);
+  box-shadow: 0 10px 6px -6px rgba(67, 52, 45, 0.7);
   background-color:rgb(223, 213, 207);
   margin-top: 15px;
   cursor: pointer;
@@ -120,3 +125,4 @@ input::placeholder {
 .quote__text {
   font-size: 2em;
 }
+
