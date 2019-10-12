@@ -69,11 +69,10 @@ class App extends Component {
     this.setState({movies: moviesWithImages})
   }
 
-<<<<<<< HEAD
   render=() => {
     return (
       <div className="App">
-          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters}/>} />
+          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters} insults={insults}/>} />
           <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} setCurrentCharacters={this.setCurrentCharacters} changeSelectedMovie={this.changeSelectedMovie} characters={this.currentCharacters}/>} />
           <Route exact path='/movies/:id' 
                       render={ (props)=> <CharacterContainer {...props} 

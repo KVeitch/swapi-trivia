@@ -5,7 +5,6 @@ import './CharacterContainer.css'
 
 
 const CharacterContainer = props => {
-<<<<<<< HEAD
     console.log('CC: ', props)
     if(!props.isReady){
         return(
@@ -20,8 +19,6 @@ const CharacterContainer = props => {
         )
     }
  
-=======
->>>>>>> master
     const characterList = props.characters.map((character, i) => {
         console.log('character', character)
         return <CharacterCard 
