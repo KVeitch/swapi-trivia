@@ -20,10 +20,11 @@ const CharacterContainer = props => {
     }
  
     const characterList = props.characters.map((character, i) => {
-        console.log('character', character)
+        console.log(i)
         return <CharacterCard 
-                    key={i} 
-                    character={character} />
+                    key={i+1} 
+                    character={character}
+                    addFavorite={props.addFavorite} />
     })
     return (
         <section className='character__container'>

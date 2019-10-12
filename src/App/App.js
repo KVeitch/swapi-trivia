@@ -20,6 +20,7 @@ class App extends Component {
       selectedMovie: 1,
       currentCharacters: [],
       isCurrentCharactersLoaded: false,
+      favoriteCharacters: [],
     }
   }
 
@@ -29,6 +30,10 @@ class App extends Component {
     .then(()=>console.log('Got Films'))
   }
   
+  addFavorite = (character) => {
+    this.setState({ favoriteCharacters:[...this.state.favoriteCharacters, character]  })
+  }
+
   setUser = (user, userQuote, userRanking)=> {
     this.setState({ user, userQuote, userRanking })
   }
@@ -79,6 +84,7 @@ class App extends Component {
                       characters={this.state.currentCharacters} 
                       changeSelectedMovie={this.changeSelectedMovie}
                       isReady={this.state.isCurrentCharactersLoaded}
+                      addFavorite={this.addFavorite}
                       />} />
           <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
           {/* <Redirect to='/movies' /> */}

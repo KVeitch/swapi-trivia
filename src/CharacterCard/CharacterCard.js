@@ -1,5 +1,6 @@
 import React from 'react';
 import './CharacterCard.css'
+
 const CharacterCard = props => {
   const { films, homeworld, name, population, species} = props.character
   const filmList = films.map(film => <li>{film}</li>)
@@ -12,6 +13,11 @@ const CharacterCard = props => {
           <li className='character__population'>Population: {population}</li>
         </ul>
         <ul className='character__films'>Appearing in:{filmList}</ul>
+        <div type='button' className='div__favorite' 
+        onClick={()=>props.addFavorite({ films, homeworld, name, population, species })}
+        >
+          Favorite?
+        </div>
     </div>
   )
 }
