@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Form.css';
 import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
-import mockFilms from '../mock-data/mockFilm'
 import mockCharacters from '../mock-data/characters'
 import insults from '../mock-data/C3PO';
 
@@ -27,10 +26,8 @@ class Form extends Component {
 
     if(name && quote && ranking) {
       this.props.setUser(name, quote, ranking);
-      this.props.setMovies(mockFilms)
-      console.log('mockFilms', mockFilms)
-      this.props.setCharacters(mockCharacters)
-      console.log('mockCharacters', mockCharacters)
+      // this.props.setMovies(mockFilms)
+      // this.props.setCharacters(mockCharacters)
       this.setState({ revealError: false, toMovies: true });
     } else {
       this.setState({ revealError: true })
@@ -93,7 +90,7 @@ class Form extends Component {
         <div className='random__quote'>
           <p className='quote__text'>{this.handleRandomQuote()}</p>
           <button className='quote__submit' onClick={this.handleRandomQuote} >
-            Insults by C3P0
+            Insults
           </button>
         </div>
         </form>
