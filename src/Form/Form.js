@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './Form.css';
 import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
-// import mockFilms from '../mock-data/mockFilm'
-// import mockCharacters from '../mock-data/characters'
-
 
 class Form extends Component {
   constructor() {
@@ -14,14 +11,19 @@ class Form extends Component {
       ranking:'Nerf Herder',
       quote: '',
       revealError:false,
-      toMovies:false  
+      toMovies:false,
+      randomQuote: '' 
     }
   }
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]:e.target.value});
+  componentDidMount() {
+    this.setState({ randomQuote: this.handleRandomQuote()})
   }
-    
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name] :e.target.value });
+  }
+  
   handleSubmit = () => {
     const { name, quote, ranking } = this.state;
 
@@ -86,7 +88,7 @@ class Form extends Component {
           </div>
             </div>
         <div className='random__quote'>
-          <p className='quote__text'>{this.handleRandomQuote()}</p>
+          <p className='quote__text'>{this.state.randomQuote}</p>
           <div type='button' className='quote__submit' onClick={this.handleRandomQuote} >
             Insults by C3P0
           </div>
