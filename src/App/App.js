@@ -17,7 +17,7 @@ class App extends Component {
       userQuote:'',
       userRanking:'',
       movies: [],
-      selectedMovie: 1,
+      selectedMovie: '',
       currentCharacters: [],
       isCurrentCharactersLoaded: false,
       favoriteCharacters: [],
@@ -46,6 +46,10 @@ class App extends Component {
       .then(()=>console.log('finished character fetch'))
   }
   
+  resetIsCurrentCharacterLoaded= () => {
+    this.setState({ isCurrentCharactersLoaded:false, selectedMovie:'' })
+  }
+
   changeSelectedMovie= (movieNum) => {
     this.setCurrentCharacters(movieNum)
     this.setState({ selectedMovie : movieNum})
@@ -87,7 +91,14 @@ class App extends Component {
                       addFavorite={this.addFavorite}
                       favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
                       />} />
-          <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
+          <Route path='/movies'
+                  render={(props) => <UserMenu {...props} 
+                    user={this.state.user} 
+                    userQuote={this.state.userQuote} 
+                    userRanking={this.state.userRanking}
+                    resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
+                  />} 
+            />
           {/* <Redirect to='/movies' /> */}
 
       </div>
