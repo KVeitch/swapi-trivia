@@ -1,8 +1,22 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
-
+import loading from '../images/loading.gif'
 const MovieContainer = props => {
+  if(props.movies.length === 0){
+    return(
+      <>
+      <h1>Loading..</h1>
+      <div className='div__image'>
+        <p className='loading__text'>Please be patient,</p>
+        <p className='loading__text'>the service droids are doing their best.</p>
+        <img className='loading__image' src={loading} alt="BB-8 droid rolling back and forth" />
+      </div>
+      </>
+    )
+  }
+
+
   const movieMap = [4,5,6,1,2,3,7]
   const movieList = props.movies.map((movie, i) => 
 
