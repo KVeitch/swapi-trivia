@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
-import { getMovies, getFilmCharacters, createCharacterList, getCharacter } from '../apiCalls';
-import MovieContainer from '../MovieContainer/MovieContainer';
+import { getMovies, getFilmCharacters } from '../apiCalls';
 import { Route, Redirect} from 'react-router-dom';
+import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
 import UserMenu from '../UserMenu/UserMenu';
+import FavoriteCharacters from '../FavoriteCharacters/FavoriteCharacters'
 import insults from '../mock-data/C3PO';
 
 class App extends Component {
@@ -120,7 +121,7 @@ class App extends Component {
           <Route exact path='/favorites' 
                   render={ (props)=>
                     <> 
-                    <CharacterContainer {...props}    
+                    <FavoriteCharacters {...props}    
                       characters={this.state.favoriteCharacters} 
                       changeSelectedMovie={this.changeSelectedMovie}
                       isReady={this.state.isCurrentCharactersLoaded}
