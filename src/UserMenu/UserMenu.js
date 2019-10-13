@@ -11,10 +11,20 @@ const UserMenu = (props) => {
             <p className='box__ends'>Ranking: {props.userRanking}</p>
         </div>
             <div className='buttons'>
-                <Link to='/movies/'><button className='user__buttons' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link>
-                <Link to='/favorites/'><button className='user__buttons'>Favorite Characters</button></Link>
+                <Link to='/movies/'>
+                    <button type='button' className='user__buttons' onClick={props.resetIsCurrentCharacterLoaded}>
+                        Back To Movies
+                    </button>
+                </Link>
+                <Link to='/favorites/'>
+                    <button type='button'className='user__buttons'>
+                        Favorite Characters
+                    </button>
+                </Link>
                 <Link to ='/'>
-                    <button className='user__buttons' onClick={props.signUserOut}>Sign Out</button>
+                    <button type='button' className='user__buttons' onClick={props.signUserOut}>
+                        Sign Out
+                    </button>
                 </Link>
             </div>
         </div>

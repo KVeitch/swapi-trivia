@@ -84,7 +84,7 @@ class Form extends Component {
                 <option value='Jedi Master' className='option'>Jedi Master</option>
               </select>
           </div>
-          <button className='btn__submit' onClick={this.handleSubmit} >
+          <button type='button' className='btn__submit' onClick={this.handleSubmit} >
             Submit
           </button>
           </div>
