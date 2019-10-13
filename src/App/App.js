@@ -28,7 +28,7 @@ class App extends Component {
     getMovies()
     .then(data => this.setState({ movies : data }))
     .then(()=>this.setImages())
-    .then(()=>console.log('Got Films'))
+    .then(()=>console.log('Got Films', this.state.movies))
   }
   
   setFavorite = (character, name) => {
@@ -99,16 +99,35 @@ class App extends Component {
   render= () => {
     return (
       <div className="App">
-          <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters} insults={insults}/>} />
-          <Route exact path='/movies' render={ (props)=> <MovieContainer {...props} movies={this.state.movies} setCurrentCharacters={this.setCurrentCharacters} changeSelectedMovie={this.changeSelectedMovie} characters={this.currentCharacters}/>} />
+          <Route exact path='/' 
+                  render={ (props)=> <Form {...props}
+                    setUser={this.setUser}
+                    setMovies={this.setMovies}
+                    setCharacters={this.setCharacters}
+                    insults={insults}
+                    />}
+                  />
+
+          <Route exact path='/movies' 
+                  render={ (props)=> <MovieContainer {...props} 
+                    movies={this.state.movies} 
+                    setCurrentCharacters={this.setCurrentCharacters} 
+                    changeSelectedMovie={this.changeSelectedMovie} 
+                    characters={this.currentCharacters}
+                    />}
+                  />
+
           <Route exact path='/movies/:id' 
-                      render={ (props)=> <CharacterContainer {...props} 
-                      characters={this.state.currentCharacters} 
-                      changeSelectedMovie={this.changeSelectedMovie}
-                      isReady={this.state.isCurrentCharactersLoaded}
-                      setFavorite={this.setFavorite}
-                      favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
-                      />} />
+                  render={ (props)=> <CharacterContainer {...props} 
+                    characters={this.state.currentCharacters} 
+                    changeSelectedMovie={this.changeSelectedMovie}
+                    isReady={this.state.isCurrentCharactersLoaded}
+                    setFavorite={this.setFavorite}
+                    favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
+                    opening_crawl={this.state.movies[0].opening_crawl}
+                    />}
+                  />
+
           <Route path='/movies'
                   render={(props) => <UserMenu {...props} 
                     user={this.state.user} 
@@ -116,29 +135,29 @@ class App extends Component {
                     userRanking={this.state.userRanking}
                     resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
                     signUserOut={this.signUserOut}
-                  />} 
-            />
+                    />} 
+                  />
+                  
           <Route exact path='/favorites' 
                   render={ (props)=>
                     <> 
-                    <FavoriteCharacters {...props}    
-                      characters={this.state.favoriteCharacters} 
-                      changeSelectedMovie={this.changeSelectedMovie}
-                      isReady={this.state.isCurrentCharactersLoaded}
-                      setFavorite={this.setFavorite}
-                      favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
-                    />
-                    <UserMenu {...props} 
-                      user={this.state.user} 
-                      userQuote={this.state.userQuote} 
-                      userRanking={this.state.userRanking}
-                      resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
-                    />
+                      <FavoriteCharacters {...props}    
+                        characters={this.state.favoriteCharacters} 
+                        changeSelectedMovie={this.changeSelectedMovie}
+                        isReady={this.state.isCurrentCharactersLoaded}
+                        setFavorite={this.setFavorite}
+                        favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
+                      />
+                      <UserMenu {...props} 
+                        user={this.state.user} 
+                        userQuote={this.state.userQuote} 
+                        userRanking={this.state.userRanking}
+                        resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
+                      />
                     </>
-                  }
-          />
+                    }
+                  />
           {/* <Redirect to='/movies' /> */}
-
       </div>
     );  
   }
