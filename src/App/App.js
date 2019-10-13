@@ -58,13 +58,6 @@ class App extends Component {
 
   setImages = () => {
     const dictionary = {
-      // 4: 'https://images-na.ssl-images-amazon.com/images/I/61yWUYWkBhL._SY445_.jpg', 
-      // 2: 'https://images-na.ssl-images-amazon.com/images/I/61zAkpvYLqL._SY741_.jpg', 
-      // 1: 'https://ae01.alicdn.com/kf/HTB1h5pCNXXXXXXiaXXXq6xXFXXX9.jpg', 
-      // 3: 'https://images-na.ssl-images-amazon.com/images/I/61UpAncAQbL._SY679_.jpg', 
-      // 6: 'https://images-na.ssl-images-amazon.com/images/I/51UdiBUkerL.jpg', 
-      // 5: 'https://images-na.ssl-images-amazon.com/images/I/814Cbv8EftL._SY679_.jpg',
-      // 7: 'noUrl'
       1:'https://m.media-amazon.com/images/I/91NrqPMwWqL._AC_UY436_FMwebp_QL65_.jpg',
       2:'https://images-na.ssl-images-amazon.com/images/I/91WTnoEb7RL._UR300,400_FMJPG_.jpg',
       3:'https://m.media-amazon.com/images/I/91RuQy-UBfL._AC_UY436_FMwebp_QL65_.jpg',
@@ -82,9 +75,6 @@ class App extends Component {
         ...movie,
         movieImage
       }
-      // if (movie.episode === Object.keys(dictionary)) {
-      //   return Object.assign(movie, dictionary)
-      // }
     })
     this.setState({movies: moviesWithImages})
   }
