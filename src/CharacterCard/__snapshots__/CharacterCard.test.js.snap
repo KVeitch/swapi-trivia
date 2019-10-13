@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character Card should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="character__card"
+>
+  <h2
+    className="characer__name"
+  >
+    Bob
+  </h2>
+  <ul
+    className="character__data__list"
+  >
+    <li
+      className="character__species"
+    >
+      Species: 
+      humanish
+    </li>
+    <li
+      className="character__homeworld"
+    >
+      Homeworld: 
+      earth
+    </li>
+    <li
+      className="character__population"
+    >
+      Population: 
+      8000000000
+    </li>
+  </ul>
+  <ul
+    className="character__films"
+  >
+    Appearing in:
+    <li>
+      Best of my Home movies
+    </li>
+    <li>
+      Mostly vines
+    </li>
+  </ul>
+  <div
+    className="div__favorite"
+    onClick={[Function]}
+    type="button"
+  >
+    Favorite
+  </div>
+</div>
+`;
