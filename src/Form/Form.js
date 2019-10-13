@@ -34,6 +34,7 @@ class Form extends Component {
         this.setState({revealError:true})
     }
   }
+
   handleRandomQuote = () => {
     let randomIndex = Math.floor(Math.random() * (this.props.insults.length))
     const randomQuotes = this.props.insults.map(insult => {
@@ -83,10 +84,10 @@ class Form extends Component {
                 <option value='Jedi Master' className='option'>Jedi Master</option>
               </select>
           </div>
-          <div type='button' className='btn__submit' onClick={this.handleSubmit} >
+          <button className='btn__submit' onClick={this.handleSubmit} >
             Submit
+          </button>
           </div>
-            </div>
         <div className='random__quote'>
           <p className='quote__text'>{this.state.randomQuote}<span> -C3PO </span></p>
         </div>

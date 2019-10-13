@@ -3,7 +3,6 @@ import CharacterCard from '../CharacterCard/CharacterCard';
 import loading from '../images/loading.gif'
 import './CharacterContainer.css'
 
-
 const CharacterContainer = props => {
     if(!props.isReady){
         return(
@@ -17,15 +16,14 @@ const CharacterContainer = props => {
             </>
         )
     }
- 
 
-    const characterList = props.characters.map((character, i) => {
+const characterList = props.characters.map((character, i) => {
 
-        return <CharacterCard 
-                    key={i} 
-                    character={character}
-                    setFavorite={props.setFavorite}
-                    favoriteList={props.favoriteList} />
+    return <CharacterCard 
+                key={i} 
+                character={character}
+                setFavorite={props.setFavorite}
+                favoriteList={props.favoriteList} />
     })
     return (
         <section className='character__container'>

@@ -94,14 +94,10 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
         className="quote__text"
       >
         Don’t worry about Master Luke. I’m sure he’ll be all right. He’s quite clever, you know… for a human being.
+        <span>
+           -C3PO 
+        </span>
       </p>
-      <div
-        className="quote__submit"
-        onClick={[Function]}
-        type="button"
-      >
-        Insults by C3P0
-      </div>
     </div>
   </form>
 </div>

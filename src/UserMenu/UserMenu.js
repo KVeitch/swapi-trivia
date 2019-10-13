@@ -4,13 +4,19 @@ import './UserMenu.css';
 
 const UserMenu = (props) => {
     return(
+        <div className='footer'>
         <div className='user__box'>
             <p className='box__ends'>{props.user}</p>
             <p>Favorite Quote: "{props.userQuote}"</p>
             <p className='box__ends'>Ranking: {props.userRanking}</p>
-            <Link to='/movies/'><button type='button' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link>
-            <Link to='/favorites/'><button>Favorite Characters</button></Link>
-            <button onClick={props.userSignOut}>Sign Out</button>
+        </div>
+            <div className='buttons'>
+                <Link to='/movies/'><button className='user__buttons' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link>
+                <Link to='/favorites/'><button className='user__buttons'>Favorite Characters</button></Link>
+                <Link to ='/'>
+                    <button className='user__buttons' onClick={props.signUserOut}>Sign Out</button>
+                </Link>
+            </div>
         </div>
     )
 }
