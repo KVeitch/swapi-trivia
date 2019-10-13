@@ -22,6 +22,7 @@
   background-color: rgba(194, 127, 120, 0.9);
   border: 1px solid black; 
   cursor: pointer;
+  display: inline-block;
   height: 40px;
   line-height: 40px;
   margin-top: 10px;
@@ -30,12 +31,12 @@
 }
 
 .favorite {
-  border: 2px solid gold;
-  box-shadow: 0 0 25px 3px blue
+  border: 2px solid #bbc278;
+  box-shadow: 0 0 25px 3px #7f78c2;
 
 }
 .favorite .div__favorite {
-  background-color: gold;
+  background-color: #bbc278;
   border: 1px solid black; 
   cursor: pointer;
   height:40px;
@@ -43,4 +44,10 @@
   margin-top: 10px;
   text-align: center;
   width: 120px;
+}
+
+.character__key {
+  font-style: bold;
+  display: flex;
+  justify-content: center;
 }
