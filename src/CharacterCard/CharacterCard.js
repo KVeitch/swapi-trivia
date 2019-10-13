@@ -20,7 +20,7 @@ const CharacterCard = props => {
         <div type='button' className='div__favorite' 
         onClick={()=>props.addFavorite({ films, homeworld, name, population, species })}
         >
-          Favorite?
+          Favorite
         </div>
     </div>
   )
