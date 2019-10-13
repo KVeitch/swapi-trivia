@@ -27,7 +27,8 @@ class App extends Component {
   componentDidMount = () => {
     getMovies()
     .then(data => this.setState({ movies : data }))
-    .then(()=>console.log('Got Films'))
+    .then(()=>this.setImages())
+    .then(()=>console.log('Got Films',this.state.movies))
   }
   
   addFavorite = (character) => {
@@ -57,15 +58,25 @@ class App extends Component {
 
   setImages = () => {
     const dictionary = {
-      2: 'https://images-na.ssl-images-amazon.com/images/I/61yWUYWkBhL._SY445_.jpg', 
-      4: 'https://images-na.ssl-images-amazon.com/images/I/61zAkpvYLqL._SY741_.jpg', 
-      1: 'https://ae01.alicdn.com/kf/HTB1h5pCNXXXXXXiaXXXq6xXFXXX9.jpg', 
-      3: 'https://images-na.ssl-images-amazon.com/images/I/61UpAncAQbL._SY679_.jpg', 
-      6: 'https://images-na.ssl-images-amazon.com/images/I/51UdiBUkerL.jpg', 
-      5: 'https://images-na.ssl-images-amazon.com/images/I/814Cbv8EftL._SY679_.jpg'
+      // 4: 'https://images-na.ssl-images-amazon.com/images/I/61yWUYWkBhL._SY445_.jpg', 
+      // 2: 'https://images-na.ssl-images-amazon.com/images/I/61zAkpvYLqL._SY741_.jpg', 
+      // 1: 'https://ae01.alicdn.com/kf/HTB1h5pCNXXXXXXiaXXXq6xXFXXX9.jpg', 
+      // 3: 'https://images-na.ssl-images-amazon.com/images/I/61UpAncAQbL._SY679_.jpg', 
+      // 6: 'https://images-na.ssl-images-amazon.com/images/I/51UdiBUkerL.jpg', 
+      // 5: 'https://images-na.ssl-images-amazon.com/images/I/814Cbv8EftL._SY679_.jpg',
+      // 7: 'noUrl'
+      1:'https://m.media-amazon.com/images/I/91NrqPMwWqL._AC_UY436_FMwebp_QL65_.jpg',
+      2:'https://images-na.ssl-images-amazon.com/images/I/91WTnoEb7RL._UR300,400_FMJPG_.jpg',
+      3:'https://m.media-amazon.com/images/I/91RuQy-UBfL._AC_UY436_FMwebp_QL65_.jpg',
+      4:'https://images-na.ssl-images-amazon.com/images/I/91Fagd6BPvL._UR300,400_FMJPG_.jpg',
+      5:'https://images-na.ssl-images-amazon.com/images/I/91mJqQ3gyhL._UR300,400_FMJPG_.jpg',
+      6:'https://images-na.ssl-images-amazon.com/images/I/91H37HUG4kL._UR300,400_FMJPG_.jpg',
+      7:'https://m.media-amazon.com/images/I/91FDYb0ehmL._AC_UY436_FMwebp_QL65_.jpg'
+
     }
     const moviesWithImages = this.state.movies.map(movie => {
-      const movieImage = dictionary[movie.episode];
+      const movieImage = dictionary[movie.episode_id];
+      console.log(movie.episode_id,dictionary[movie.episode_id])
 
       return {
         ...movie,
