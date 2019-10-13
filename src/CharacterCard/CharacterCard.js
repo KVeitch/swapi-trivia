@@ -3,9 +3,8 @@ import './CharacterCard.css'
 
 const CharacterCard = props => {
   const { films, homeworld, name, population, species} = props.character
-  
-  const classList = props.favoriteList && props.favoriteList.includes(name) ? 'character__card favorite' : 'character__card'
 
+  const classList = props.favoriteList && props.favoriteList.includes(name) ? 'character__card favorite' : 'character__card'
 
   const filmList = films.map(film => <li>{film}</li>)
   return(

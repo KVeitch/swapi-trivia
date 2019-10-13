@@ -17,7 +17,7 @@
     font-size: 1.7em;
 }
 
-.menu__button {
+.user__buttons {
     background-color:rgb(223, 213, 207);
     border-radius: 5%;
     box-shadow: 0 10px 6px -6px rgba(67, 52, 45, 0.7);
