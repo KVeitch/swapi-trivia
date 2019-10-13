@@ -24,7 +24,7 @@ const CharacterContainer = props => {
         return <CharacterCard 
                     key={i} 
                     character={character}
-                    addFavorite={props.addFavorite}
+                    setFavorite={props.setFavorite}
                     favoriteList={props.favoriteList} />
     })
     return (

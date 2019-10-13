@@ -36,7 +36,6 @@ export const getFilmCharacters = (id) => {
   .then(chars => getCharacterHomeworld(chars))
   .then(chars => getCharacterSpecies(chars))
   .then(chars => getCharacterFilms(chars))
-  
 }
 
 const formatData = (characterUrls) => {
@@ -52,7 +51,6 @@ const formatData = (characterUrls) => {
   })
   return Promise.all(charactersData)
 }
-
 
 const getCharacterSpecies = (chars) => {
   let speciesData = chars.map( char => {
