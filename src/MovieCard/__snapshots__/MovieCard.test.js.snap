@@ -14,7 +14,7 @@ exports[`Movie Card should match the snapshot with all the data passed in correc
     3
   </p>
   <img
-    src=""
+    className="movie_image"
   />
   <p
     className="card__release"
@@ -26,8 +26,8 @@ exports[`Movie Card should match the snapshot with all the data passed in correc
   >
     <button
       className="characters__button"
+      id={3}
       onClick={[Function]}
-      value={3}
     >
       View Characters
     </button>

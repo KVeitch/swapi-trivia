@@ -10,7 +10,7 @@ const CharacterCard = props => {
   const filmList = films.map(film => <li>{film}</li>)
   return(
     <div className={classList}>
-      <h2 className='characer__name'>{name}</h2>
+      <h2 className='character__name'>{name}</h2>
       <ul className='character__data__list'>
           <li className='character__species'>Species: {species}</li>
           <li className='character__homeworld'>Homeworld: {homeworld}</li>

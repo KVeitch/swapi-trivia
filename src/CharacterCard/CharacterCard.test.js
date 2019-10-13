@@ -8,7 +8,8 @@ describe('Character Card', () => {
         const wrapper =
             shallow(<CharacterCard 
                         key={3}
-                        character={''}/>)
+                        character={''}
+                        films={[]}/>)
         expect(wrapper).toMatchSnapshot();
     });
 });
