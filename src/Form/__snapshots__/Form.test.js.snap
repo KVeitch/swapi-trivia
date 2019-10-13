@@ -79,13 +79,12 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
           </option>
         </select>
       </div>
-      <div
+      <button
         className="btn__submit"
         onClick={[Function]}
-        type="button"
       >
         Submit
-      </div>
+      </button>
     </div>
     <div
       className="random__quote"

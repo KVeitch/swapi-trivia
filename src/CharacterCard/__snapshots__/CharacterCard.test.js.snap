@@ -5,7 +5,7 @@ exports[`Character Card should match the snapshot with all the data passed in co
   className="character__card"
 >
   <h2
-    className="characer__name"
+    className="character__name"
   >
     Bob
   </h2>
