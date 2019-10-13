@@ -18,7 +18,6 @@ const CharacterContainer = props => {
     }
 
 const characterList = props.characters.map((character, i) => {
-
     return <CharacterCard 
                 key={i} 
                 character={character}
