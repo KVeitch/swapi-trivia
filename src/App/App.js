@@ -17,18 +17,24 @@ class App extends Component {
       userQuote:'',
       userRanking:'',
       movies: [],
-      selectedMovie: 1,
+      selectedMovie: '',
       currentCharacters: [],
       isCurrentCharactersLoaded: false,
+      favoriteCharacters: [],
     }
   }
 
   componentDidMount = () => {
     getMovies()
     .then(data => this.setState({ movies : data }))
-    .then(()=>console.log('Got Films'))
+    .then(()=>this.setImages())
+    .then(()=>console.log('Got Films',this.state.movies))
   }
   
+  addFavorite = (character) => {
+    this.setState({ favoriteCharacters:[...this.state.favoriteCharacters, character]  })
+  }
+
   setUser = (user, userQuote, userRanking)=> {
     this.setState({ user, userQuote, userRanking })
   }
@@ -38,9 +44,13 @@ class App extends Component {
     getFilmCharacters(filmId)
       .then(data => this.setState({ currentCharacters:data}))
       .then(()=>this.setState({isCurrentCharactersLoaded:true }))
-      .then(()=>console.log('finished character fetch',this.state.currentCharacters))
+      .then(()=>console.log('finished character fetch'))
   }
   
+  resetIsCurrentCharacterLoaded= () => {
+    this.setState({ isCurrentCharactersLoaded:false, selectedMovie:'' })
+  }
+
   changeSelectedMovie= (movieNum) => {
     this.setCurrentCharacters(movieNum)
     this.setState({ selectedMovie : movieNum})
@@ -48,23 +58,23 @@ class App extends Component {
 
   setImages = () => {
     const dictionary = {
-      2: 'https://images-na.ssl-images-amazon.com/images/I/61yWUYWkBhL._SY445_.jpg', 
-      4: 'https://images-na.ssl-images-amazon.com/images/I/61zAkpvYLqL._SY741_.jpg', 
-      1: 'https://ae01.alicdn.com/kf/HTB1h5pCNXXXXXXiaXXXq6xXFXXX9.jpg', 
-      3: 'https://images-na.ssl-images-amazon.com/images/I/61UpAncAQbL._SY679_.jpg', 
-      6: 'https://images-na.ssl-images-amazon.com/images/I/51UdiBUkerL.jpg', 
-      5: 'https://images-na.ssl-images-amazon.com/images/I/814Cbv8EftL._SY679_.jpg'
+      1:'https://m.media-amazon.com/images/I/91NrqPMwWqL._AC_UY436_FMwebp_QL65_.jpg',
+      2:'https://images-na.ssl-images-amazon.com/images/I/91WTnoEb7RL._UR300,400_FMJPG_.jpg',
+      3:'https://m.media-amazon.com/images/I/91RuQy-UBfL._AC_UY436_FMwebp_QL65_.jpg',
+      4:'https://images-na.ssl-images-amazon.com/images/I/91Fagd6BPvL._UR300,400_FMJPG_.jpg',
+      5:'https://images-na.ssl-images-amazon.com/images/I/91mJqQ3gyhL._UR300,400_FMJPG_.jpg',
+      6:'https://images-na.ssl-images-amazon.com/images/I/91H37HUG4kL._UR300,400_FMJPG_.jpg',
+      7:'https://m.media-amazon.com/images/I/91FDYb0ehmL._AC_UY436_FMwebp_QL65_.jpg'
+
     }
     const moviesWithImages = this.state.movies.map(movie => {
-      const movieImage = dictionary[movie.episode];
+      const movieImage = dictionary[movie.episode_id];
+      console.log(movie.episode_id,dictionary[movie.episode_id])
 
       return {
         ...movie,
         movieImage
       }
-      // if (movie.episode === Object.keys(dictionary)) {
-      //   return Object.assign(movie, dictionary)
-      // }
     })
     this.setState({movies: moviesWithImages})
   }
@@ -79,8 +89,17 @@ class App extends Component {
                       characters={this.state.currentCharacters} 
                       changeSelectedMovie={this.changeSelectedMovie}
                       isReady={this.state.isCurrentCharactersLoaded}
+                      addFavorite={this.addFavorite}
+                      favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
                       />} />
-          <Route path='/movies' render={(props) => <UserMenu {...props} user={this.state.user} userQuote={this.state.userQuote} userRanking={this.state.userRanking} />} />
+          <Route path='/movies'
+                  render={(props) => <UserMenu {...props} 
+                    user={this.state.user} 
+                    userQuote={this.state.userQuote} 
+                    userRanking={this.state.userRanking}
+                    resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
+                  />} 
+            />
           {/* <Redirect to='/movies' /> */}
 
       </div>
