@@ -2,38 +2,56 @@
 
 exports[`User Menu should match the snapshot with all the data passed in correctly 1`] = `
 <div
-  className="user__box"
+  className="footer"
 >
-  <p
-    className="box__ends"
-  />
-  <p>
-    Favorite Quote: "
-    "
-  </p>
-  <p
-    className="box__ends"
+  <div
+    className="user__box"
   >
-    Ranking: 
-  </p>
-  <Link
-    to="/movies/"
-  >
-    <button
-      type="button"
+    <p
+      className="box__ends"
+    />
+    <p>
+      Favorite Quote: "
+      "
+    </p>
+    <p
+      className="box__ends"
     >
-      Back To Movies
-    </button>
-  </Link>
-  <Link
-    to="/favorites/"
+      Ranking: 
+      Nerf Herder
+    </p>
+  </div>
+  <div
+    className="buttons"
   >
-    <button>
-      Favorite Characters
-    </button>
-  </Link>
-  <button>
-    Sign Out
-  </button>
+    <Link
+      to="/movies/"
+    >
+      <button
+        className="user__buttons"
+        onClick={[MockFunction]}
+      >
+        Back To Movies
+      </button>
+    </Link>
+    <Link
+      to="/favorites/"
+    >
+      <button
+        className="user__buttons"
+      >
+        Favorite Characters
+      </button>
+    </Link>
+    <Link
+      to="/"
+    >
+      <button
+        className="user__buttons"
+      >
+        Sign Out
+      </button>
+    </Link>
+  </div>
 </div>
 `;

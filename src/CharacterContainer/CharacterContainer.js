@@ -18,6 +18,7 @@ const CharacterContainer = props => {
   }
 
 const characterList = props.characters.map((character, i) => {
+
   return <CharacterCard 
             key={i} 
             character={character}
@@ -41,6 +42,7 @@ const characterList = props.characters.map((character, i) => {
     </section>
     </div>
   )
+
 }
 
 export default CharacterContainer;

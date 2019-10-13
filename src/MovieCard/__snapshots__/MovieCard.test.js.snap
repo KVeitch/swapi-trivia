@@ -14,6 +14,7 @@ exports[`Movie Card should match the snapshot with all the data passed in correc
     3
   </p>
   <img
+    alt="movie poster for "
     className="movie_image"
   />
   <p

@@ -35,7 +35,7 @@ class App extends Component {
     let names = this.state.favoriteCharacters.map(character => character.name);
     if (names.includes(name)) {
       let filteredFavs = this.state.favoriteCharacters.filter(character => character.name !== name);
-      this.setState({ favoriteCharacters:filteredFavs})
+      this.setState({ favoriteCharacters: filteredFavs})
     } else {
       this.setState({ favoriteCharacters:[...this.state.favoriteCharacters, character]  })
     }
