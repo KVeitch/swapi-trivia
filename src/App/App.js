@@ -32,7 +32,6 @@ class App extends Component {
   }
   
   setFavorite = (character, name) => {
-    console.log(name)
     let names = this.state.favoriteCharacters.map(character => character.name);
     if (names.includes(name)) {
       let filteredFavs = this.state.favoriteCharacters.filter(character => character.name !== name);
@@ -106,14 +105,24 @@ class App extends Component {
                     resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
                   />} 
             />
-          <Route path='/movies/favorites' 
-                  render={ (props)=> <CharacterContainer {...props}    
-                    characters={this.state.favoriteCharacters} 
-                    changeSelectedMovie={this.changeSelectedMovie}
-                    isReady={this.state.isCurrentCharactersLoaded}
-                    setFavorite={this.setFavorite}
-                    favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
-                    />}
+          <Route exact path='/favorites' 
+                  render={ (props)=>
+                    <> 
+                    <CharacterContainer {...props}    
+                      characters={this.state.favoriteCharacters} 
+                      changeSelectedMovie={this.changeSelectedMovie}
+                      isReady={this.state.isCurrentCharactersLoaded}
+                      setFavorite={this.setFavorite}
+                      favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
+                    />
+                    <UserMenu {...props} 
+                      user={this.state.user} 
+                      userQuote={this.state.userQuote} 
+                      userRanking={this.state.userRanking}
+                      resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
+                    />
+                    </>
+                  }
           />
           {/* <Redirect to='/movies' /> */}
 
