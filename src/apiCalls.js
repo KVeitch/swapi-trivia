@@ -3,7 +3,7 @@ export const getMovies = () => {
     .then(data => data.json())
     .then(parsedData => parsedData.results)
     .then(movies => 
-      movies.sort((movieA, movieB) => movieA.release_date > movieB.release_date ? 1 : -1)
+      movies.sort((movieA, movieB) => parseInt(movieA.episode_id) - parseInt(movieB.episode_id))
       )
       .then(movies => {
         return movies

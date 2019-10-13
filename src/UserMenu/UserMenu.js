@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './UserMenu.css';
 
 const UserMenu = (props) => {
@@ -7,7 +8,8 @@ const UserMenu = (props) => {
             <p className='box__ends'>{props.user}</p>
             <p>Favorite Quote: "{props.userQuote}"</p>
             <p className='box__ends'>Ranking: {props.userRanking}</p>
-            <button className='sign-out__button'onClick={props.userSignOut}>Sign Out</button>
+            <Link to='/movies/'><button className='menu__button' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link> 
+            <button className='menu__button' onClick={props.userSignOut}>Sign Out</button>
         </div>
     )
 }

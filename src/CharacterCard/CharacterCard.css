@@ -1,12 +1,11 @@
 .character__card {
-  width:45%;
-  border:1px solid gray;
-  display: inline-block;
-  height:300px;
-  padding:8px;
-  margin:5px;
   background-color: rgba(194, 127, 120, 0.6);
+  border: 1px solid gray;
   border-radius: 5px;
+  height: 350px;
+  margin: 5px;
+  padding: 8px;
+  width: 45%;
 }
 
 .characer__name {
@@ -16,6 +15,32 @@
 .character__data__list,
 .character__films {
   list-style: none;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
+.div__favorite {
+  background-color: rgba(194, 127, 120, 0.9);
+  border: 1px solid black; 
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  width: 120px;
+}
+
+.favorite {
+  border: 2px solid gold;
+  box-shadow: 0 0 25px 3px blue
+
+}
+.favorite .div__favorite {
+  background-color: gold;
+  border: 1px solid black; 
+  cursor: pointer;
+  height:40px;
+  line-height: 40px;
+  margin-top: 10px;
+  text-align: center;
+  width: 120px;
+}
