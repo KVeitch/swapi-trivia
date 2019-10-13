@@ -7,18 +7,17 @@ const MovieCard = (props) => {
   
     return (
       <div className='movie__card'>
-        <h2 className="card__title">{title}</h2>
-     
-        <p className="card__episode">Episode {episode}</p>
-        <img src={movieImage} />
+        <h2 className='card__title'>{title}</h2>
+        <p className='card__episode'>Episode {episode}</p>
+        <img src={movieImage} className='movie_image'/>
         <p className="card__release">Released in {releaseYear.slice(0, 4)}</p>
         <Link to={`/movies/${id}`}>
-          <div type='button' onClick={e => changeSelectedMovie(e.target.id)} 
+          <button onClick={e => changeSelectedMovie(e.target.id)} 
             className='characters__button' 
             id={id}
           >
             View Characters
-          </div>
+          </button>
         </Link>
       </div>
     )
