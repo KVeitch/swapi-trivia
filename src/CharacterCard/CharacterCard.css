@@ -1,4 +1,8 @@
 .character__card {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background-color: rgba(194, 127, 120, 0.6);
   border: 1px solid gray;
   border-radius: 5px;
@@ -10,6 +14,10 @@
 
 .characer__name {
   font-size: 1.3em;
+}
+
+.favorite__icon{
+  height:30px;
 }
 
 .character__data__list,
@@ -31,12 +39,13 @@
 }
 
 .favorite {
-  border: 2px solid #bbc278;
+  /* background-color: rgba(127, 120, 194, 0.9); */
+  border: 2px solid #7f78c2;
   box-shadow: 0 0 25px 3px #7f78c2;
 
 }
 .favorite .div__favorite {
-  background-color: #bbc278;
+  background-color: #7f78c2;
   border: 1px solid black; 
   cursor: pointer;
   height:40px;
