@@ -3,9 +3,13 @@ import './CharacterCard.css'
 
 const CharacterCard = props => {
   const { films, homeworld, name, population, species} = props.character
+  
+  const classList = props.favoriteList && props.favoriteList.includes(name) ? 'character__card favorite' : 'character__card'
+
+
   const filmList = films.map(film => <li>{film}</li>)
   return(
-    <div className='character__card'>
+    <div className={classList}>
       <h1 className='characer__name'>{name}</h1>
       <ul className='character__data__list'>
           <li className='character__species'>Species: {species}</li>

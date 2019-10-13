@@ -5,7 +5,6 @@ import './CharacterContainer.css'
 
 
 const CharacterContainer = props => {
-    console.log('CC: ', props)
     if(!props.isReady){
         return(
             <>
@@ -19,12 +18,14 @@ const CharacterContainer = props => {
         )
     }
  
+
     const characterList = props.characters.map((character, i) => {
-        console.log(i)
+
         return <CharacterCard 
-                    key={i+1} 
+                    key={i} 
                     character={character}
-                    addFavorite={props.addFavorite} />
+                    addFavorite={props.addFavorite}
+                    favoriteList={props.favoriteList} />
     })
     return (
         <section className='character__container'>
