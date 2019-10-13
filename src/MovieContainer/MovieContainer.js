@@ -3,6 +3,7 @@ import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 
 const MovieContainer = props => {
+  const movieMap = [4,5,6,1,2,3,7]
   const movieList = props.movies.map((movie, i) => 
 
   <MovieCard 
@@ -14,7 +15,7 @@ const MovieContainer = props => {
     characters={movie.characters}
     changeSelectedMovie={props.changeSelectedMovie}
     setCurrentCharacters={props.setCurrentCharacters}
-    id={i+1}
+    id={movieMap[i]}
     />)
   return (
     <section className='movie__container'>
