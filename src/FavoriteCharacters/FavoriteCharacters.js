@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import CharacterCard from '../CharacterCard/CharacterCard';
 import loading from '../images/loading.gif'
-import './CharacterContainer.css'
+import './FavoriteCharacters.css'
 
 const FavoriteCharacters = props => {
-    if(!props.isReady){
+    if(props.favoriteList.length===0){
         return(
             <>
-            <h1>Loading..</h1>
+            <h2 className='favorite__h2'>See your favorite character!</h2>
+            <h3 className='favorite__h3'>Please select a few first.</h3>
+            <Link to='/movies'>
+                <button className='user__buttons fav__character__btn'>Back to Movies</button>
+            </Link>
             <div className='div__image'>
-                <p className='loading__text'>Please be patient,</p>
-                <p className='loading__text'>the service droids are doing their best.</p>
                 <img className='loading__image' src={loading} alt="BB-8 droid rolling back and forth" />
             </div>
             </>
@@ -20,7 +23,7 @@ const FavoriteCharacters = props => {
 const characterList = props.characters.map((character, i) => {
 
     return <CharacterCard 
-                key={i} 
+                key={'fav'+i} 
                 character={character}
                 setFavorite={props.setFavorite}
                 favoriteList={props.favoriteList} />

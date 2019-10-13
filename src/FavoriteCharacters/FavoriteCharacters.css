@@ -1,26 +1,22 @@
-.character__container {
-  height: 80vh;
-  overflow: scroll;
+.fav__character__btn {
+  height:70px;
 }
 
-.div__image {
-  align-self:center;
-  height: 262px;
-  width: 480px
+.favorite__h2 {
+  font-family: 'SpaceMeatballRegular';
+  font-size: 3em;
+  font-style: normal;
+  font-weight: normal;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+  margin:0 auto;
 }
 
-.loading__text {
-  align-items: center;
-  color: rgba(67, 52, 45, 0.7);
-  font-size: 1.7em;
-  font-family: 'Barlow Condensed', sans-serif;
-  text-shadow: 1px 2px 3px rgba(23, 6, 1, 0.94);
-}
-
-.character__container {
-  align-self: center;
-  border: 1px solid rgba(67, 52, 45, 0.7);
-  display: flex;
-  flex-wrap: wrap;
-  width: 85%;
+.favorite__h3 {
+  color:rgb(194, 0, 0);
+  font-family: 'SpaceMeatballRegular';
+  font-size: 2em;
+  font-style: normal;
+  font-weight: normal;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+  margin:0 auto;
 }
