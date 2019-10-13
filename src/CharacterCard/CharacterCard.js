@@ -18,7 +18,7 @@ const CharacterCard = props => {
         </ul>
         <ul className='character__films'>Appearing in:{filmList}</ul>
         <div type='button' className='div__favorite' 
-        onClick={()=>props.addFavorite({ films, homeworld, name, population, species })}
+        onClick={()=>props.setFavorite({ films, homeworld, name, population, species }, name)}
         >
           Favorite
         </div>

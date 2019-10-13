@@ -8,7 +8,8 @@ const UserMenu = (props) => {
             <p className='box__ends'>{props.user}</p>
             <p>Favorite Quote: "{props.userQuote}"</p>
             <p className='box__ends'>Ranking: {props.userRanking}</p>
-            <Link to='/movies/'><button type='button' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link> 
+            <Link to='/movies/'><button type='button' onClick={props.resetIsCurrentCharacterLoaded}>Back To Movies</button></Link>
+            <Link to='/favorites/'><button>Favorite Characters</button></Link>
             <button onClick={props.userSignOut}>Sign Out</button>
         </div>
     )
