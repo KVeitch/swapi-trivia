@@ -6,7 +6,6 @@ import MovieContainer from '../MovieContainer/MovieContainer';
 import { Route, Redirect} from 'react-router-dom';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
 import UserMenu from '../UserMenu/UserMenu';
-// import films from '../mock-data/films.json';
 import insults from '../mock-data/C3PO';
 
 class App extends Component {
@@ -53,11 +52,11 @@ class App extends Component {
       .then(()=>console.log('finished character fetch'))
   }
   
-  resetIsCurrentCharacterLoaded= () => {
+  resetIsCurrentCharacterLoaded = () => {
     this.setState({ isCurrentCharactersLoaded:false, selectedMovie:'' })
   }
 
-  changeSelectedMovie= (movieNum) => {
+  changeSelectedMovie = (movieNum) => {
     this.setCurrentCharacters(movieNum)
     this.setState({ selectedMovie : movieNum})
   }
@@ -84,7 +83,19 @@ class App extends Component {
     this.setState({movies: moviesWithImages})
   }
 
-  render=() => {
+  signUserOut = () => {
+    this.setState({
+      user: '',
+      userQuote: '',
+      userRanking: '',
+      movies: [],
+      selectedMovie: '',
+      currentCharacters: [],
+      isCurrentCharactersLoaded: false,
+      favoriteCharacters: []})
+  }
+
+  render= () => {
     return (
       <div className="App">
           <Route exact path='/' render={ (props)=> <Form {...props} setUser={this.setUser} setMovies={this.setMovies} setCharacters={this.setCharacters} insults={insults}/>} />
@@ -103,6 +114,7 @@ class App extends Component {
                     userQuote={this.state.userQuote} 
                     userRanking={this.state.userRanking}
                     resetIsCurrentCharacterLoaded={this.resetIsCurrentCharacterLoaded}
+                    signUserOut={this.signUserOut}
                   />} 
             />
           <Route exact path='/favorites' 
