@@ -34,7 +34,6 @@ describe('Character Card', () => {
       setFavorite={mockSetFav}
       favoriteList={mockFavoriteList}
       />);
-    // wrapper.update()
     wrapper.find('.div__favorite').simulate('click');
       console.log(wrapper.props())
     expect(wrapper.props().setFavorite).toHaveBeenCalled()

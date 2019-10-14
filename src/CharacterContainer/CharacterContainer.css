@@ -11,7 +11,7 @@
 .character__container-crawl {
   background:rgba(0, 0, 0, 0.7);
   width:100%;
-  height:40vh;
+  height:70vh;
   overflow: hidden;
 }
 
@@ -28,7 +28,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 40vh;
+  height: 60vh;
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
   font-size: 300%;
