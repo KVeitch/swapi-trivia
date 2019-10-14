@@ -1,16 +1,17 @@
 .character__container-main {
   display:flex;
   height: 70vh;
-  width:85%;
+  width:95%;
   justify-content:center;
-  align-self:center;
+  align-self: center;
 }
 
 /* Crawl Stylings */
 
 .character__container-crawl {
   background:rgba(0, 0, 0, 0.7);
-  height: 70vh;
+  width:80%;
+  height:70vh;
   overflow: hidden;
   width:100%;
 }
@@ -28,7 +29,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 40vh;
+  height: 60vh;
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
   font-size: 300%;
@@ -48,11 +49,6 @@
 
 /* End of Crawl styles  */
 
-.character__container {
-  height: 70vh;
-  overflow: scroll;
-}
-
 .div__image {
   align-self:center;
   height: 262px;
@@ -68,11 +64,14 @@
 }
 
 .character__container {
-  align-self: center;
-  border: 1px solid rgba(67, 52, 45, 0.7);
+  height: 70vh;
+  overflow: scroll;
+  width: 85%;
+  
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
+  justify-content: flex-end;
+  align-items: space-between;
 }
 
 @keyframes crawl {

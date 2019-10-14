@@ -49,17 +49,17 @@ class App extends Component {
     console.log('starting character Fetch')
     getFilmCharacters(filmId)
       .then(data => this.setState({ currentCharacters:data}))
-      .then(()=>this.setState({isCurrentCharactersLoaded:true }))
-      .then(()=>console.log('finished character fetch'))
+      .then(()=> this.setState({isCurrentCharactersLoaded:true }))
+      .then(()=> console.log('finished character fetch'))
   }
   
   resetIsCurrentCharacterLoaded = () => {
     this.setState({ isCurrentCharactersLoaded:false, selectedMovie:'' })
   }
 
-  changeSelectedMovie = (movieNum) => {
+  changeSelectedMovie = (movieNum, movieIndex) => {
     this.setCurrentCharacters(movieNum)
-    this.setState({ selectedMovie : movieNum})
+    this.setState({ selectedMovie : movieIndex})
   }
 
   setImages = () => {
@@ -71,8 +71,8 @@ class App extends Component {
       5:'https://images-na.ssl-images-amazon.com/images/I/91mJqQ3gyhL._UR300,400_FMJPG_.jpg',
       6:'https://images-na.ssl-images-amazon.com/images/I/91H37HUG4kL._UR300,400_FMJPG_.jpg',
       7:'https://m.media-amazon.com/images/I/91FDYb0ehmL._AC_UY436_FMwebp_QL65_.jpg'
-
     }
+
     const moviesWithImages = this.state.movies.map(movie => {
       const movieImage = dictionary[movie.episode_id];
 
@@ -124,7 +124,7 @@ class App extends Component {
                     isReady={this.state.isCurrentCharactersLoaded}
                     setFavorite={this.setFavorite}
                     favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
-                    opening_crawl={this.state.movies[0].opening_crawl}
+                    opening_crawl={this.state.movies[this.state.selectedMovie].opening_crawl}
                     />}
                   />
 

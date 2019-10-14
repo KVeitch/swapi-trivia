@@ -2,6 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieContainer.css';
 import loading from '../images/loading.gif'
+
 const MovieContainer = props => {
   if(props.movies.length === 0){
     return(

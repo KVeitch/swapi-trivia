@@ -7,12 +7,12 @@ describe('Character Card', () => {
   const mockSetFav = jest.fn();
   const mockFavoriteList = []
   const mockCharacter = {
-                          films:['Best of my Home movies', 'Mostly vines'],
-                          homeworld:'earth',
-                          name:'Bob',
-                          population:'8000000000',
-                          species:'humanish',
-                        }
+    films:['Best of my Home movies', 'Mostly vines'],
+    homeworld:'earth',
+    name:'Bob',
+    population:'8000000000',
+    species:'humanish',
+  }
 
   beforeEach(()=> {
     wrapper = shallow(<CharacterCard 
@@ -28,16 +28,14 @@ describe('Character Card', () => {
   });
 
   it('Should call setFavorite when the button is clicked', ()=>{
+    // setFavorites is a closure so mount was necessary - in functional component
     wrapper = mount(<CharacterCard 
       key={377} 
       character={mockCharacter}
       setFavorite={mockSetFav}
       favoriteList={mockFavoriteList}
       />);
-    // wrapper.update()
     wrapper.find('.div__favorite').simulate('click');
-      console.log(wrapper.props())
     expect(wrapper.props().setFavorite).toHaveBeenCalled()
-  
   })
 }); 
