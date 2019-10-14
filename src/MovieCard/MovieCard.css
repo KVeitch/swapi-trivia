@@ -1,5 +1,5 @@
 .movie__card {
-    background-color: rgba(69, 141, 150, 0.77);
+    background-color: rgba(84, 108, 115, 0.75);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
 }
 
 .movie__card:hover{
-    box-shadow: 0px 0px 15px red;
+    box-shadow: 0px 10px 15px rgba(147, 127, 204, 1);
 }
 
 .card__title {
@@ -30,7 +30,7 @@
 }
 
 .characters__button {
-    background-color: rgba(62, 110, 116, 0.99);
+    background-color: rgba(66, 119, 133, 1);
     border: none;
     border-radius: 5px;
     box-shadow: 0 10px 6px -6px rgba(41, 72, 76, 0.99);
@@ -39,7 +39,7 @@
     height: 60px;
     margin-bottom: 20px;
     text-decoration: none;
-    width: 100%;
+    width: 90%;
     cursor:pointer;
 }
 

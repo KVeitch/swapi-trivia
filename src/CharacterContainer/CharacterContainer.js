@@ -4,44 +4,44 @@ import loading from '../images/loading.gif'
 import './CharacterContainer.css'
 
 const CharacterContainer = props => {
-  if(!props.isReady){
+    if(!props.isReady) {
     return(
-      <>
-      <h1>Loading..</h1>
-      <div className='div__image'>
+        <>
+        <h1>Loading..</h1>
+        <div className='div__image'>
         <p className='loading__text'>Please be patient,</p>
         <p className='loading__text'>the service droids are doing their best.</p>
         <img className='loading__image' src={loading} alt="BB-8 droid rolling back and forth" />
-      </div>
-      </>
+        </div>
+        </>
     )
-  }
+    }
 
 const characterList = props.characters.map((character, i) => {
 
-  return <CharacterCard 
+    return <CharacterCard 
             key={i} 
             character={character}
             setFavorite={props.setFavorite}
             favoriteList={props.favoriteList} 
-          />
-  })
+            />
+    })
 
-  return (
+    return (
     <div className='character__container-main'>
     <section className='character__container-crawl'>
-      <div className='fade'></div>
-      <section className='crawl__text'>
+        <div className='fade'></div>
+        <section className='crawl__text'>
         <div className='crawl'>
-          {props.opening_crawl}
+            {props.opening_crawl}
         </div>
-      </section>
+        </section>
     </section>
     <section className='character__container'>
-      {characterList}
+        {characterList}
     </section>
     </div>
-  )
+    )
 
 }
 
