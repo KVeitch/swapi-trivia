@@ -3,7 +3,7 @@
   height: 70vh;
   width:95%;
   justify-content:center;
-  align-self:center;
+  align-self: center;
 }
 
 /* Crawl Stylings */
@@ -48,11 +48,6 @@
 
 /* End of Crawl styles  */
 
-.character__container {
-  height: 70vh;
-  overflow: scroll;
-}
-
 .div__image {
   align-self:center;
   height: 262px;
@@ -68,11 +63,14 @@
 }
 
 .character__container {
-  align-self: center;
-  border: 1px solid rgba(67, 52, 45, 0.7);
+  height: 70vh;
+  overflow: scroll;
+  width: 85%;
+  
   display: flex;
   flex-wrap: wrap;
-  width: 85%;
+  justify-content: flex-end;
+  align-items: space-between;
 }
 
 @keyframes crawl {
