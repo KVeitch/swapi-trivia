@@ -57,9 +57,9 @@ class App extends Component {
     this.setState({ isCurrentCharactersLoaded:false, selectedMovie:'' })
   }
 
-  changeSelectedMovie = (movieNum) => {
+  changeSelectedMovie = (movieNum, movieIndex) => {
     this.setCurrentCharacters(movieNum)
-    this.setState({ selectedMovie : movieNum})
+    this.setState({ selectedMovie : movieIndex})
   }
 
   setImages = () => {
@@ -124,7 +124,7 @@ class App extends Component {
                     isReady={this.state.isCurrentCharactersLoaded}
                     setFavorite={this.setFavorite}
                     favoriteList={this.state.favoriteCharacters.map(character=>character.name)}
-                    opening_crawl={this.state.movies[0].opening_crawl}
+                    opening_crawl={this.state.movies[this.state.selectedMovie].opening_crawl}
                     />}
                   />
 

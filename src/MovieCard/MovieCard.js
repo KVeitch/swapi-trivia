@@ -12,7 +12,7 @@ const MovieCard = (props) => {
         <img src={movieImage} className='movie_image' alt={`movie poster for ${title}`}/>
         <p className="card__release">Released in {releaseYear.slice(0, 4)}</p>
         <Link to={`/movies/${id}`}>
-          <button onClick={e => changeSelectedMovie(e.target.id)} 
+          <button onClick={e => changeSelectedMovie(e.target.id, episode - 1)} 
             className='characters__button' 
             id={id}
           >
