@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character Container should match the snapshot with all the data passed in correctly 1`] = `
+<Fragment>
+  <h2
+    className="favorite__h2"
+  >
+    See your favorite character!
+  </h2>
+  <h3
+    className="favorite__h3"
+  >
+    Please select a few first.
+  </h3>
+  <Link
+    to="/movies"
+  >
+    <button
+      className="user__buttons fav__character__btn"
+    >
+      Back to Movies
+    </button>
+  </Link>
+  <div
+    className="div__image"
+  >
+    <img
+      alt="BB-8 droid rolling back and forth"
+      className="loading__image"
+      src="loading.gif"
+    />
+  </div>
+</Fragment>
+`;
