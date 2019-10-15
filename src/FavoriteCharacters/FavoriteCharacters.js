@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import CharacterCard from '../CharacterCard/CharacterCard';
+import PropTypes from 'prop-types';
 import loading from '../images/loading.gif'
 import './FavoriteCharacters.css'
 
@@ -36,3 +37,11 @@ const characterList = props.characters.map((character, i) => {
 }
 
 export default FavoriteCharacters;
+
+FavoriteCharacters.propTypes = {
+    characters:PropTypes.array,
+    changeSelectedMovie:PropTypes.func,
+    isReady:PropTypes.bool,
+    setFavorite:PropTypes.func,
+    favoriteList:PropTypes.array,
+  }

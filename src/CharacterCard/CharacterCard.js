@@ -1,7 +1,9 @@
 import React from 'react';
 import './CharacterCard.css'
+import PropTypes from 'prop-types';
 import favoriteStar from '../images/favorite.svg';
 import star from '../images/star.svg'
+
 const CharacterCard = props => {
 
   const { films, homeworld, name, population, species} = props.character;
@@ -29,3 +31,10 @@ const CharacterCard = props => {
 }
 
 export default CharacterCard;
+
+
+CharacterCard.propTypes = {
+  character : PropTypes.object,
+  setFavorite : PropTypes.func,
+  favoriteList : PropTypes.array 
+}

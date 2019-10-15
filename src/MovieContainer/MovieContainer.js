@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import PropTypes from 'prop-types';
 import './MovieContainer.css';
 import loading from '../images/loading.gif'
 

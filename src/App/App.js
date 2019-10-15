@@ -3,6 +3,7 @@ import './App.css';
 import Form from '../Form/Form';
 import { getMovies, getFilmCharacters } from '../apiCalls';
 import { Route, Redirect} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer'
 import UserMenu from '../UserMenu/UserMenu';
@@ -27,8 +28,8 @@ class App extends Component {
   componentDidMount = () => {
     getMovies()
     .then(data => this.setState({ movies : data }))
-    .then(()=> this.setImages())
-    // .then(()=>console.log('Got Films', this.state.movies))
+    .then(()=>this.setImages())
+    .catch(err => console.log(err))
   }
   
   setFavorite = (character, name) => {
@@ -164,3 +165,14 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes ={
+  user:PropTypes.string,
+  userQuote:PropTypes.string,
+  userRanking:PropTypes.string,
+  movies: PropTypes.array,
+  selectedMovie: PropTypes.string,
+  currentCharacters: PropTypes.array,
+  isCurrentCharactersLoaded: PropTypes.bool,
+  favoriteCharacters: PropTypes.array,
+}
