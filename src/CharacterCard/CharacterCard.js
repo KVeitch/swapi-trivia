@@ -1,16 +1,16 @@
 import React from 'react';
-import './CharacterCard.css'
+import './CharacterCard.css';
 import PropTypes from 'prop-types';
 import favoriteStar from '../images/favorite.svg';
-import star from '../images/star.svg'
+import star from '../images/star.svg';
 
 const CharacterCard = props => {
 
   const { films, homeworld, name, population, species} = props.character;
   const classList = props.favoriteList && props.favoriteList.includes(name) ? 'character__card favorite' : 'character__card';
   const starIcon = props.favoriteList && props.favoriteList.includes(name) ? favoriteStar : star;
+  const filmList = films.map((film,i) => <li key={film}>{film}</li>);
 
-  const filmList = films.map(film => <li>{film}</li>)
   return(
     <div className={classList}>
       <h2 className='character__name'>{name}</h2>
@@ -31,7 +31,6 @@ const CharacterCard = props => {
 }
 
 export default CharacterCard;
-
 
 CharacterCard.propTypes = {
   character : PropTypes.object,

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Form.css';
+import PropTypes from 'prop-types';
 import robot from '../images/003-robot.svg';
 import { Redirect } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    this.setState({ randomQuote: this.handleRandomQuote()})
+    this.setState({ randomQuote: this.handleRandomQuote()});
   }
 
   handleChange = (e) => {
@@ -31,17 +32,17 @@ class Form extends Component {
         this.props.setUser(name, quote, ranking);
         this.setState({ name:'' , ranking:'', quote:'', revealError:false, toMovies:true});
     } else {
-        this.setState({revealError:true})
+        this.setState({revealError:true});
     }
   }
 
   handleRandomQuote = () => {
-    let randomIndex = Math.floor(Math.random() * (this.props.insults.length))
+    let randomIndex = Math.floor(Math.random() * (this.props.insults.length));
     const randomQuotes = this.props.insults.map(insult => {
-      return insult.quote
-    })
-    return randomQuotes[randomIndex]
+      return insult.quote;
+    });
 
+    return randomQuotes[randomIndex];
   }
 
   render() {
@@ -66,7 +67,7 @@ class Form extends Component {
             placeholder = 'What do you prefer to be called?'
             value = {this.state.name}
             onChange = {this.handleChange}
-            />
+          />
           <input 
             type = 'text'
             name = 'quote'
@@ -74,7 +75,7 @@ class Form extends Component {
             placeholder = 'What is your favorite Star Wars quote?'
             value = {this.state.quote}
             onChange = {this.handleChange}
-            />
+          />
           <div className='selection__menu'>
             <h3>How Jedi Are You?</h3>
               <select name='ranking' value={this.state.ranking} onChange={this.handleChange} >
@@ -94,9 +95,14 @@ class Form extends Component {
         </form>
       </div>
     );
-
-    }
-
+  }
 }
 
 export default Form;
+
+Form.propTypes = {
+  setUser: PropTypes.func,
+  setMovies: PropTypes.func,
+  setCharacters: PropTypes.func,
+  insults:PropTypes.array
+}

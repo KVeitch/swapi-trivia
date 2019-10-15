@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './UserMenu.css';
 
 const UserMenu = (props) => {
@@ -32,3 +33,11 @@ const UserMenu = (props) => {
 }
 
 export default UserMenu;
+
+UserMenu.propTypes = {
+    user: PropTypes.string,
+    userQuote: PropTypes.string,
+    userRanking: PropTypes.string,
+    resetIsCurrentCharacterLoaded: PropTypes.func,
+    signUserOut: PropTypes.func
+  }

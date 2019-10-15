@@ -1,10 +1,10 @@
 import React from 'react';
 import './MovieCard.css';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const MovieCard = (props) => {
-  const { episode, releaseYear, title, changeSelectedMovie, id, movieImage } = props
+  const { episode, releaseYear, title, changeSelectedMovie, id, movieImage } = props;
   
     return (
       <div className='movie__card'>
