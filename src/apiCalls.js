@@ -5,28 +5,7 @@ export const getMovies = () => {
     .then(movies => 
       movies.sort((movieA, movieB) => parseInt(movieA.episode_id) - parseInt(movieB.episode_id))
       )
-    // .then(movies => {
-    //   console.log('after',movies)
-    //   return movies
-    // })
 }
-
-// export const getCharacter = characterUrl => {
-//   return fetch(characterUrl)
-//     .then(data => data.json())
-// }
-
-// export const createCharacterList = characters => {
-//   const characterList = characters.map(character => getCharacter(character))
-  
-//   return Promise.all(characterList);
-// }
-
-
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////
 
 export const getFilmCharacters = (id) => {
   let url = `https://swapi.co/api/films/${id}`

@@ -10,7 +10,6 @@ import {
   getCharacterFilm,
   } from './apiCalls';
 
-
 describe('apiCalls',() => {
 
   describe('getMovies',() => {
@@ -48,7 +47,6 @@ describe('apiCalls',() => {
 
       expect(getMovies()).rejects.toEqual(Error('fetch failed'))
     })
-
 
   })
 
