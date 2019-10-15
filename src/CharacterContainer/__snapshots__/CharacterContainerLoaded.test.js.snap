@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character Container should match the snapshot with all the data passed in correctly 1`] = `
+<div
+  className="character__container-main"
+>
+  <section
+    className="character__container-crawl"
+  >
+    <div
+      className="fade"
+    />
+    <section
+      className="crawl__text"
+    >
+      <div
+        className="crawl"
+      />
+    </section>
+  </section>
+  <section
+    className="character__container"
+  />
+</div>
+`;
