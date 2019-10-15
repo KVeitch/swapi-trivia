@@ -47,11 +47,9 @@ class App extends Component {
   }
 
   setCurrentCharacters = (filmId) => {
-    console.log('starting character Fetch')
     getFilmCharacters(filmId)
       .then(data => this.setState({ currentCharacters:data}))
       .then(()=> this.setState({isCurrentCharactersLoaded:true }))
-      .then(()=> console.log('finished character fetch'))
   }
   
   resetIsCurrentCharacterLoaded = () => {
