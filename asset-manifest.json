@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/swapi-trivia/static/css/main.568297b1.chunk.css",
+    "main.js": "/swapi-trivia/static/js/main.aa8e999a.chunk.js",
+    "main.js.map": "/swapi-trivia/static/js/main.aa8e999a.chunk.js.map",
+    "runtime-main.js": "/swapi-trivia/static/js/runtime-main.ac423d25.js",
+    "runtime-main.js.map": "/swapi-trivia/static/js/runtime-main.ac423d25.js.map",
+    "static/js/2.368274be.chunk.js": "/swapi-trivia/static/js/2.368274be.chunk.js",
+    "static/js/2.368274be.chunk.js.map": "/swapi-trivia/static/js/2.368274be.chunk.js.map",
+    "index.html": "/swapi-trivia/index.html",
+    "precache-manifest.e1fb2275c30e3c8d6aac3927082359f2.js": "/swapi-trivia/precache-manifest.e1fb2275c30e3c8d6aac3927082359f2.js",
+    "service-worker.js": "/swapi-trivia/service-worker.js",
+    "static/css/main.568297b1.chunk.css.map": "/swapi-trivia/static/css/main.568297b1.chunk.css.map",
+    "static/media/003-robot.svg": "/swapi-trivia/static/media/003-robot.c10406a4.svg",
+    "static/media/favorite.svg": "/swapi-trivia/static/media/favorite.c0210b84.svg",
+    "static/media/loading.gif": "/swapi-trivia/static/media/loading.455cac46.gif",
+    "static/media/star.svg": "/swapi-trivia/static/media/star.d072b762.svg",
+    "static/media/App.css": "/swapi-trivia/static/media/tatooinesunset.6c79b0f8.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac423d25.js",
+    "static/js/2.368274be.chunk.js",
+    "static/css/main.568297b1.chunk.css",
+    "static/js/main.aa8e999a.chunk.js"
+  ]
+}
