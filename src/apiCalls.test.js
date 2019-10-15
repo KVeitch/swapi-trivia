@@ -13,12 +13,12 @@ import {
 describe('apiCalls',() => {
 
   describe('getMovies',() => {
-    const mockResponce = movieData;
+    const mockResponse = movieData;
     beforeEach(()=>{
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.resolve({
           ok:true,
-          json:()=> Promise.resolve(mockResponce),
+          json:()=> Promise.resolve(mockResponse),
         });
       });
     });
@@ -36,7 +36,7 @@ describe('apiCalls',() => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok:false,
-        json:()=> Promise.resolve(mockResponce),
+        json:()=> Promise.resolve(mockResponse),
       })
     })
 ////Need to fix the error text
