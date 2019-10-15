@@ -27,8 +27,8 @@ class App extends Component {
   componentDidMount = () => {
     getMovies()
     .then(data => this.setState({ movies : data }))
-    .then(()=>this.setImages())
-    .then(()=>console.log('Got Films', this.state.movies))
+    .then(()=> this.setImages())
+    // .then(()=>console.log('Got Films', this.state.movies))
   }
   
   setFavorite = (character, name) => {
@@ -49,8 +49,8 @@ class App extends Component {
     console.log('starting character Fetch')
     getFilmCharacters(filmId)
       .then(data => this.setState({ currentCharacters:data}))
-      .then(()=>this.setState({isCurrentCharactersLoaded:true }))
-      .then(()=>console.log('finished character fetch'))
+      .then(()=> this.setState({isCurrentCharactersLoaded:true }))
+      .then(()=> console.log('finished character fetch'))
   }
   
   resetIsCurrentCharacterLoaded = () => {
