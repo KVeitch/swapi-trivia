@@ -2,23 +2,33 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { getMovies, getFilmCharacters } from '../apiCalls'
+jest.mock('../apiCalls.js')
 
 describe('App', () => {
   let wrapper;
-  let mockSetUser = jest.fn();
-  let mockSetCurrentCharacters = jest.fn();
-  let mockResetIsCurrentCharacterLoaded = jest.fn();
-  let mockChangeSelectedMovie = jest.fn();
-  let mockSetImages = jest.fn();
-  let mockSignUserOut = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<App 
-      />)
-  })
+    getMovies.mockImplementation(() => {
+      return Promise.resolve([{}, {}])
+    });
+
+    getFilmCharacters.mockImplementation(() => {
+      return Promise.resolve([{}, {}])
+    });
+
+    wrapper = shallow(<App />)
+  });
 
   it('should match the snapshot with all the data passed in correctly', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('componentDidMount', () => {
+    it('should retrieve movies after mounting', () => {
+      shallow(<App />);
+      expect(getMovies).toHaveBeenCalled();
+    });
   });
 
   describe('default values', () => {
@@ -36,19 +46,20 @@ describe('App', () => {
 
   describe('setUser', () => {
     it('should set the state of user, userQuote, userRanking', () => {
-      wrapper.setState({user: 'user', userQuote: 'userQuote', userRanking: 'userRanking'});
+      wrapper.setState({ user: 'user', userQuote: 'userQuote', userRanking: 'userRanking' });
     });
   });
 
   describe('setCurrentCharacters', () => {
-    it.skip('should fetch the data', () => {
-      // Async testing lesson tomorrow
+    it('should retrieve the characters', async () => {
+      await wrapper.instance().setCurrentCharacters();
+      expect(getFilmCharacters).toHaveBeenCalled();
     });
   });
 
   describe('resetIsCurrentCharacterLoaded', () => {
     it('should set the state of isCurrentCharactersLoaded to false and selectedMovie to an empty string', () => {
-      wrapper.setState({isCurrentCharactersLoaded: true, selectedMovie: 'Hello World'});
+      wrapper.setState({ isCurrentCharactersLoaded: true, selectedMovie: 'Hello World' });
       wrapper.instance().resetIsCurrentCharacterLoaded();
       expect(wrapper.state().isCurrentCharactersLoaded).toEqual(false);
       expect(wrapper.state().selectedMovie).toEqual('');
@@ -56,21 +67,21 @@ describe('App', () => {
   });
 
   describe('changeSelectedMovie', () => {
-    it.skip('should call setCurrentCharacters', () => {
-      wrapper.instance().changeSelectedMovie(1);
-      expect(wrapper.instance().props.setCurrentCharacters(1)).toHaveBeenCalled()
+    it('should call setCurrentCharacters', async () => {
+      await wrapper.instance().changeSelectedMovie();
+      expect(wrapper.instance().setCurrentCharacters).toHaveBeenCalled();
     });
 
-    it('should set state.selectedMovie to the movie number passed in', () => {
-      wrapper.instance().changeSelectedMovie(2)
+    it.skip('should update state.selectedMovie to the movie number passed in', async () => {
+      await wrapper.instance().changeSelectedMovie(2)
       expect(wrapper.state().selectedMovie).toEqual(2)
     });
   });
 
   describe('setImages', () => {
-    it('should set state.movies to update with images', () => {
+    it('should update state.movies to update with images', () => {
       wrapper.instance().setImages();
-      expect(wrapper.state().movies).toEqual([]);
+      expect(wrapper.state().movies).toEqual([{}, {}]);
     });
   });
 
@@ -99,4 +110,5 @@ describe('App', () => {
       })
     });
   });
+
 });

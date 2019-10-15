@@ -8,10 +8,10 @@ describe('User Menu', () => {
     it('should match the snapshot with all the data passed in correctly', () => {
         wrapper =
             shallow(<UserMenu
-                    user={''}
-                    userQuote={''}
-                    userRanking={'Nerf Herder'}
-                    resetIsCurrentCharacterLoaded={mockResetIsCurrentCharacterLoaded}/>)
+                user={''}
+                userQuote={''}
+                userRanking={'Nerf Herder'}
+                resetIsCurrentCharacterLoaded={mockResetIsCurrentCharacterLoaded} />)
         expect(wrapper).toMatchSnapshot();
     });
 });

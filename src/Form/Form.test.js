@@ -15,12 +15,12 @@ describe('Form', () => {
                 setCharacters={mockSetCharacters}
                 insults={[{ quote: 'Don’t worry about Master Luke. I’m sure he’ll be all right. He’s quite clever, you know… for a human being.' }]}
             />)
-        });
+    });
 
     it('should match the snapshot with all the data passed in correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
-    
+
     describe('handleChange', () => {
         it('should update state.name when handleChange is called', () => {
             let mockEvent = {
@@ -29,10 +29,21 @@ describe('Form', () => {
                     value: 'Bob'
                 }
             }
-            wrapper.find('.input__name').simulate('onChange');
+            // wrapper.find('.input__name').simulate('onChange');
             wrapper.instance().handleChange(mockEvent);
 
             expect(wrapper.state().name).toEqual('Bob');
+        });
+
+        it('should find the input with a class of .input__name and call the handleChange method', () => {
+            let mockEvent = {
+                target: {
+                    name: 'quote',
+                    value: 'Hello World'
+                }
+            }
+            wrapper.find('.input__name').simulate('onChange');
+            expect(wrapper.instance().handleChange(mockEvent));
         });
 
         it('should update state.quote when handleChange is called', () => {
@@ -42,13 +53,15 @@ describe('Form', () => {
                     value: 'Hello World'
                 }
             }
-            wrapper.find('.input__quote').simulate('onChange');
+            // can write a test for wrapper.find finds an input and simulates a change event & calls __()
+            // expect ___() to have been called 
+            // wrapper.find('.input__quote').simulate('onChange');
             wrapper.instance().handleChange(mockEvent);
 
             expect(wrapper.state().quote).toEqual('Hello World');
         });
     });
-    
+
     describe('default values', () => {
         it('should have Nerf Herder as a default value for state.ranking', () => {
             expect(wrapper.state().ranking).toEqual('Nerf Herder');
@@ -67,19 +80,20 @@ describe('Form', () => {
     describe('handleSubmit', () => {
         it('should be update revealError to true if theres no name or quote', () => {
             expect(wrapper.state().revealError).toEqual(false);
-            wrapper.setState({name : 'Susan'});
+            wrapper.setState({ name: 'Susan' });
             wrapper.instance().handleSubmit();
             expect(wrapper.state().revealError).toEqual(true);
         });
 
         it('should call setUser if there is a valid name and quote', () => {
-            wrapper.setState({name : 'Susan', quote : "After all, he's a wookie" });
+            wrapper.setState({ name: 'Susan', quote: "After all, he's a wookie" });
             wrapper.instance().handleSubmit();
+            // expect(mockSetUser) also works
             expect(wrapper.instance().props.setUser).toHaveBeenCalledWith('Susan', "After all, he's a wookie", 'Nerf Herder')
         });
 
         it('should reset state', () => {
-            wrapper.setState({name: 'Bob', ranking: 'Jedi Master', quote: 'Hello World', revealError: true, toMovies: false});
+            wrapper.setState({ name: 'Bob', ranking: 'Jedi Master', quote: 'Hello World', revealError: true, toMovies: false });
             wrapper.instance().handleSubmit();
             expect(wrapper.state().name).toEqual('');
             expect(wrapper.state().ranking).toEqual('');
@@ -90,10 +104,10 @@ describe('Form', () => {
     });
 
     describe('handleRandomQuote', () => {
-        it.skip('should return a random quote', () => {
-            global.Math.random = jest.fn(() => 1)
-            global.Math.floor = jest.fn(() => 0)
-            expect(wrapper.instance().handleRandomQuote).toEqual('Don’t worry about Master Luke. I’m sure he’ll be all right. He’s quite clever, you know… for a human being.')
+        it('should return a random quote', () => {
+            global.Math.random = jest.fn().mockImplementation(() => 1)
+            global.Math.floor = jest.fn().mockImplementation(() => 0)
+            expect(wrapper.instance().handleRandomQuote()).toEqual('Don’t worry about Master Luke. I’m sure he’ll be all right. He’s quite clever, you know… for a human being.')
         });
     });
 
