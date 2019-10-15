@@ -4,4 +4,5 @@
 
 ### Authors: 
 [Kirk Veitch](https://github.com/KVeitch)
+
 [Julian Enochs-Brown](https://github.com/julianenochs)
