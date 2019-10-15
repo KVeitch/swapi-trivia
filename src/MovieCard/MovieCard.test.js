@@ -20,8 +20,14 @@ describe('Movie Card', () => {
     });
 
     it.skip('should fire changeSelectedMovie when the View Characters Button is clicked', () => {
+        let mockEvent = {
+            target: {
+                name: 'id',
+                id: 3,
+                value: 3
+            }
+        }
         wrapper.find('.characters__button').simulate('onClick');
-        wrapper.instance().changeSelectedMovie();
-        expect(wrapper.instance().changeSelectedMovie).toHaveBeenCalled();
+        expect(mockChangeSelectedMovie(mockEvent)).toHaveBeenCalled();
     });
 });

@@ -17,10 +17,10 @@ describe('Favorite Characters', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it.skip('should render a message to indicate to select favorites if there are none', () => {
+    it('should render a message to indicate to select favorites if there are none', () => {
+        console.log('wrapper', wrapper.props())
         let header = <h2>Bananas</h2>
         expect(wrapper.contains(header))
     });
-
 
 }); 

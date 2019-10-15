@@ -2,6 +2,8 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { getMovies } from '../apiCalls'
+jest.mock('../apiCalls.js')
 
 describe('App', () => {
   let wrapper;
@@ -13,9 +15,13 @@ describe('App', () => {
   let mockSignUserOut = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<App
-    />)
-  })
+    getMovies.mockImplementation(() => {
+      return Promise.resolve([{}, {}])
+    });
+
+    wrapper = shallow(<App />)
+
+  });
 
   it('should match the snapshot with all the data passed in correctly', () => {
     expect(wrapper).toMatchSnapshot();
@@ -58,7 +64,7 @@ describe('App', () => {
   describe('changeSelectedMovie', () => {
     it.skip('should call setCurrentCharacters', () => {
       wrapper.instance().changeSelectedMovie(1, 1);
-      expect(wrapper.instance().setCurrentCharacters(1)).toHaveBeenCalled()
+      expect(wrapper.instance().changeSelectedMovie(1)).toHaveBeenCalled()
     });
 
     it.skip('should set state.selectedMovie to the movie number passed in', () => {
@@ -70,7 +76,7 @@ describe('App', () => {
   describe('setImages', () => {
     it('should set state.movies to update with images', () => {
       wrapper.instance().setImages();
-      expect(wrapper.state().movies).toEqual([]);
+      expect(wrapper.state().movies).toEqual([{}, {}]);
     });
   });
 
@@ -99,4 +105,12 @@ describe('App', () => {
       })
     });
   });
+
+  describe('componentDidMount', () => {
+    it('should retrieve movies after mounting', () => {
+        shallow(<App />);
+        expect(getMovies).toHaveBeenCalled();
+    });
+  });
+
 });

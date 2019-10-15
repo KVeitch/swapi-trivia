@@ -5,7 +5,7 @@ import loading from '../images/loading.gif'
 import './FavoriteCharacters.css'
 
 const FavoriteCharacters = props => {
-    if(props.favoriteList.length===0){
+    if(props.favoriteList.length===0) {
         return(
             <>
             <h2 className='favorite__h2'>See your favorite character!</h2>
