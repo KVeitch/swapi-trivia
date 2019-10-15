@@ -33,7 +33,7 @@ const CharacterCard = props => {
 export default CharacterCard;
 
 CharacterCard.propTypes = {
-  character : PropTypes.object,
+  character : PropTypes.number,
   setFavorite : PropTypes.func,
   favoriteList : PropTypes.array 
 }

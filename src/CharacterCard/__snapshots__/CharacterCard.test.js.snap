@@ -40,10 +40,14 @@ exports[`Character Card should match the snapshot with all the data passed in co
     className="character__films"
   >
     Appearing in:
-    <li>
+    <li
+      key="Best of my Home movies"
+    >
       Best of my Home movies
     </li>
-    <li>
+    <li
+      key="Mostly vines"
+    >
       Mostly vines
     </li>
   </ul>
