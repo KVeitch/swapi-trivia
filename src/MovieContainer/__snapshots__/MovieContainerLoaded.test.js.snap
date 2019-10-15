@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Container Loaded should match the snapshot with all the data passed in correctly 1`] = `
+<section
+  className="movie__container"
+>
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/11/",
+        "https://swapi.co/api/people/16/",
+        "https://swapi.co/api/people/20/",
+        "https://swapi.co/api/people/21/",
+        "https://swapi.co/api/people/32/",
+        "https://swapi.co/api/people/33/",
+        "https://swapi.co/api/people/34/",
+        "https://swapi.co/api/people/36/",
+        "https://swapi.co/api/people/35/",
+      ]
+    }
+    episode={1}
+    id={4}
+    key="1"
+    releaseYear="1999-05-19"
+    title="The Phantom Menace"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/6/",
+        "https://swapi.co/api/people/7/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/11/",
+        "https://swapi.co/api/people/20/",
+        "https://swapi.co/api/people/21/",
+        "https://swapi.co/api/people/22/",
+        "https://swapi.co/api/people/33/",
+        "https://swapi.co/api/people/36/",
+        "https://swapi.co/api/people/35/",
+      ]
+    }
+    episode={2}
+    id={5}
+    key="2"
+    releaseYear="2002-05-16"
+    title="Attack of the Clones"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/1/",
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/4/",
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/6/",
+        "https://swapi.co/api/people/7/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/11/",
+        "https://swapi.co/api/people/12/",
+        "https://swapi.co/api/people/13/",
+        "https://swapi.co/api/people/35/",
+      ]
+    }
+    episode={3}
+    id={6}
+    key="3"
+    releaseYear="2005-05-19"
+    title="Revenge of the Sith"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/1/",
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/4/",
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/6/",
+        "https://swapi.co/api/people/7/",
+        "https://swapi.co/api/people/8/",
+        "https://swapi.co/api/people/9/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/12/",
+      ]
+    }
+    episode={4}
+    id={1}
+    key="4"
+    releaseYear="1977-05-25"
+    title="A New Hope"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/1/",
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/4/",
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/13/",
+        "https://swapi.co/api/people/14/",
+        "https://swapi.co/api/people/18/",
+        "https://swapi.co/api/people/20/",
+        "https://swapi.co/api/people/21/",
+      ]
+    }
+    episode={5}
+    id={2}
+    key="5"
+    releaseYear="1980-05-17"
+    title="The Empire Strikes Back"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/1/",
+        "https://swapi.co/api/people/2/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/4/",
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/10/",
+        "https://swapi.co/api/people/13/",
+        "https://swapi.co/api/people/14/",
+        "https://swapi.co/api/people/16/",
+        "https://swapi.co/api/people/18/",
+        "https://swapi.co/api/people/20/",
+        "https://swapi.co/api/people/21/",
+      ]
+    }
+    episode={6}
+    id={3}
+    key="6"
+    releaseYear="1983-05-25"
+    title="Return of the Jedi"
+  />
+  <MovieCard
+    changeSelectedMovie={[MockFunction]}
+    characters={
+      Array [
+        "https://swapi.co/api/people/1/",
+        "https://swapi.co/api/people/3/",
+        "https://swapi.co/api/people/5/",
+        "https://swapi.co/api/people/13/",
+        "https://swapi.co/api/people/14/",
+        "https://swapi.co/api/people/27/",
+        "https://swapi.co/api/people/84/",
+        "https://swapi.co/api/people/85/",
+        "https://swapi.co/api/people/86/",
+        "https://swapi.co/api/people/87/",
+        "https://swapi.co/api/people/88/",
+      ]
+    }
+    episode={7}
+    id={7}
+    key="7"
+    releaseYear="2015-12-11"
+    title="The Force Awakens"
+  />
+</section>
+`;

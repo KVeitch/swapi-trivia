@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie Container should match the snapshot with all the data passed in correctly 1`] = `
-<section
-  className="movie__container"
-/>
+<Fragment>
+  <h1>
+    Loading..
+  </h1>
+  <div
+    className="div__image"
+  >
+    <p
+      className="loading__text"
+    >
+      Please be patient,
+    </p>
+    <p
+      className="loading__text"
+    >
+      the service droids are doing their best.
+    </p>
+    <img
+      alt="BB-8 droid rolling back and forth"
+      className="loading__image"
+      src="loading.gif"
+    />
+  </div>
+</Fragment>
 `;

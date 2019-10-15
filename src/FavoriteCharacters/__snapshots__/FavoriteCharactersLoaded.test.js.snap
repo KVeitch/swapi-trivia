@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite Container should match the snapshot with all the data passed in correctly 1`] = `
+<section
+  className="character__container"
+>
+  <CharacterCard
+    character={1}
+    favoriteList={
+      Array [
+        1,
+        2,
+      ]
+    }
+    key="fav0"
+  />
+  <CharacterCard
+    character={2}
+    favoriteList={
+      Array [
+        1,
+        2,
+      ]
+    }
+    key="fav1"
+  />
+</section>
+`;
