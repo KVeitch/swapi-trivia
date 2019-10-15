@@ -1,5 +1,6 @@
 import React from 'react';
 import CharacterCard from '../CharacterCard/CharacterCard';
+import PropTypes from 'prop-types';
 import loading from '../images/loading.gif'
 import './CharacterContainer.css'
 
@@ -46,3 +47,12 @@ const characterList = props.characters.map((character, i) => {
 }
 
 export default CharacterContainer;
+
+CharacterContainer.propTypes = {
+  characters:PropTypes.array,
+  changeSelectedMovie:PropTypes.func,
+  isReady:PropTypes.bool,
+  setFavorite:PropTypes.func,
+  favoriteList:PropTypes.array,
+  opening_crawl:PropTypes.string
+}

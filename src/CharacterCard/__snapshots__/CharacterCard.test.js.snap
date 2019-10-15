@@ -9,6 +9,11 @@ exports[`Character Card should match the snapshot with all the data passed in co
   >
     Bob
   </h2>
+  <img
+    alt="star icon indicatin selected favorite"
+    className="favorite__icon"
+    src="star.svg"
+  />
   <ul
     className="character__data__list"
   >

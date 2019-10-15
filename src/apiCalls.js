@@ -1,6 +1,11 @@
 export const getMovies = () => {
   return fetch('https://swapi.co/api/films/')
-    .then(data => data.json())
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+      }
+      return response.json()
+    })
     .then(parsedData => parsedData.results)
     .then(movies => 
       movies.sort((movieA, movieB) => parseInt(movieA.episode_id) - parseInt(movieB.episode_id))
@@ -9,7 +14,13 @@ export const getMovies = () => {
 
 export const getFilmCharacters = (id) => {
   let url = `https://swapi.co/api/films/${id}`
-  return fetch(url).then(res => res.json())
+  return fetch(url)
+  .then(response => {
+    if(!response.ok) {
+      throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+    }
+    return response.json()
+  })
   .then(data => data.characters)
   .then(data=> data.splice(0,10))
   .then(data => formatData(data))
@@ -20,7 +31,14 @@ export const getFilmCharacters = (id) => {
 
 const formatData = (characterUrls) => {
   let charactersData = characterUrls.map(charUrl => {
-    return fetch(charUrl).then(res => res.json()).then(data => {
+    return fetch(charUrl)
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+      }
+      return response.json()
+    })
+    .then(data => {
       return {
         films: data.films,
         homeworld: data.homeworld,
@@ -34,7 +52,14 @@ const formatData = (characterUrls) => {
 
 const getCharacterSpecies = (chars) => {
   let speciesData = chars.map( char => {
-    return fetch(char.species).then(res => res.json()).then(species => {
+    return fetch(char.species)
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+      }
+      return response.json()
+    })
+    .then(species => {
       return {
         ...char,
         species: species.name
@@ -47,7 +72,13 @@ const getCharacterSpecies = (chars) => {
 
 const getCharacterHomeworld = (chars) => {
   let homeworldData = chars.map(char => {
-    return fetch(char.homeworld).then(res => res.json()).then(homeworld => {
+    return fetch(char.homeworld).then(response => {
+      if(!response.ok) {
+        throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+      }
+      return response.json()
+    })
+    .then(homeworld => {
       return {
         ...char,
         homeworld: homeworld.name,
@@ -61,7 +92,14 @@ const getCharacterHomeworld = (chars) => {
 const getCharacterFilms = (chars) => {
   let films = chars.map(char => {
     let filmTitles = char.films.map(film => {
-      return fetch(film).then(res => res.json()).then(film => film.title)
+      return fetch(film)
+      .then(response => {
+        if(!response.ok) {
+          throw new Error(`Sorry, ${response.status} error.  Please check your URL`)
+        }
+        return response.json()
+      })
+      .then(film => film.title)
     })
     return Promise.all(filmTitles).then(filmTitles => {
       return {

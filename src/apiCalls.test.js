@@ -39,7 +39,7 @@ describe('apiCalls',() => {
         json:()=> Promise.resolve(mockResponce),
       })
     })
-
+////Need to fix the error text
     it('should return an error is fetch fails (SAD 2)',() => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.reject(Error('fetch failed'))
