@@ -8,6 +8,14 @@ Our testing suite is built with Jest/Enzyme and aims for maximum coverage of our
 
 ![swapi-box](https://user-images.githubusercontent.com/48660739/66855177-51407600-ef72-11e9-9495-67acf3012bae.png)
 
+
+![swpi-trivia-intro](./DOCS/swapi-intro640.gif)
+
+![swpi-trivia-intro](./DOCS/swapi-moviescreen640.gif)
+
+![swpi-trivia-intro](./DOCS/swapi-characrters640.gif)
+
+
 ### Authors: 
 [Kirk Veitch](https://github.com/KVeitch)
 
