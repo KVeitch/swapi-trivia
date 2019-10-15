@@ -165,14 +165,3 @@ class App extends Component {
 }
 
 export default App;
-
-App.propTypes ={
-  user:PropTypes.string,
-  userQuote:PropTypes.string,
-  userRanking:PropTypes.string,
-  movies: PropTypes.array,
-  selectedMovie: PropTypes.string,
-  currentCharacters: PropTypes.array,
-  isCurrentCharactersLoaded: PropTypes.bool,
-  favoriteCharacters: PropTypes.array,
-}

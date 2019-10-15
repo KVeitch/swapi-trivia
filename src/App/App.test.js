@@ -68,12 +68,13 @@ describe('App', () => {
 
   describe('changeSelectedMovie', () => {
     it('should call setCurrentCharacters', async () => {
+      wrapper.instance().setCurrentCharacters = jest.fn()
       await wrapper.instance().changeSelectedMovie();
       expect(wrapper.instance().setCurrentCharacters).toHaveBeenCalled();
     });
 
-    it.skip('should update state.selectedMovie to the movie number passed in', async () => {
-      await wrapper.instance().changeSelectedMovie(2)
+    it('should update state.selectedMovie to the movie number passed in', async () => {
+      await wrapper.instance().changeSelectedMovie(2, 2)
       expect(wrapper.state().selectedMovie).toEqual(2)
     });
   });

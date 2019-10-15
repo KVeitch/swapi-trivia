@@ -5,7 +5,7 @@ import MovieCard from './MovieCard';
 describe('Movie Card', () => {
     let wrapper;
     let mockChangeSelectedMovie = jest.fn()
-    it('should match the snapshot with all the data passed in correctly', () => {
+    beforeEach(() => {
         wrapper =
             shallow(<MovieCard
                 title={''}
@@ -16,10 +16,13 @@ describe('Movie Card', () => {
                 characters={[]}
                 changeSelectedMovie={mockChangeSelectedMovie}
                 id={3}/>)
+    });
+    
+    it('should match the snapshot with all the data passed in correctly', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it.skip('should fire changeSelectedMovie when the View Characters Button is clicked', () => {
+    it('should fire changeSelectedMovie when the View Characters Button is clicked', () => {
         let mockEvent = {
             target: {
                 name: 'id',
@@ -27,7 +30,7 @@ describe('Movie Card', () => {
                 value: 3
             }
         }
-        wrapper.find('.characters__button').simulate('onClick');
-        expect(mockChangeSelectedMovie(mockEvent)).toHaveBeenCalled();
+        wrapper.find('button').simulate('click', mockEvent, 2);
+        expect(mockChangeSelectedMovie).toHaveBeenCalled();
     });
 });
